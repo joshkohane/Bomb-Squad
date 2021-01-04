@@ -16,3 +16,14 @@ body {
 #game-canvas {
     border: 10px solid red;
 }
+
+.icon-links {
+    padding: 20px;
+}
+
+.github-icon,
+.linkedin-icon {
+    color: red;
+    padding: 5px;
+    font-size: 30px;
+}
