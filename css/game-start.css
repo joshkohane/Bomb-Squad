@@ -1,0 +1,50 @@
+@keyframes typewriter {
+    from {width: 0}
+    to {width: 100%;}
+}
+
+.game-start-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    font-family: 'Black Ops One', cursive;
+    color: red;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-start {
+    padding-bottom: 40px;
+}
+
+.game-start-text {
+    font-size: 30px;
+    padding: 20px 0;
+}
+
+.text-end {
+    font-size: 30px;
+    padding: 20px 0;
+    animation: typewriter 3.5s steps(40, end);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.game-start-btn {
+    font-size: 30px;
+    border: 1px solid red;
+    padding: 5px 10px;
+    animation: delay 4s;
+}
+
+.game-start-btn:hover {
+    background-color: red;
+    color: white;
+}

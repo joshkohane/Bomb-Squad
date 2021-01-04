@@ -7,22 +7,34 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link type="text/css" rel="stylesheet" href="../css/reset.css">
     <link type="text/css" rel="stylesheet" href="../css/main.css">
+    <link type="text/css" rel="stylesheet" href="../css/game-start.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1576428ae6.js" crossorigin="anonymous"></script>
     <title>Bomb Squad</title>
 </head>
 <body>
-    <h1 class="main-title" >Bomb Squad</h1>
-    <canvas id="game-canvas" height="600" width="500" style="background-color: #666666;"></canvas>
-    <div id="root"></div>
-    <div class="icon-links">
-        <a href="https://github.com/joshkohane/Bomb-Squad" target="_blank" >
-            <i class="fab fa-github github-icon"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/josh-kohane-1472981b4/" target="_blank" >
-            <i class="fab fa-linkedin linkedin-icon"></i>
-        </a>
+    <div class="game-start-container" id="game-start-container" >
+        <div class="game-start">
+            <h1 class="game-start-text" >We need your help to diffuse this bomb...</h1>
+            <p class="game-start-text" >But hurry...there isn't much time</p>
+            <p class="game-start-text" >Try to guess the code one letter at a time</p>
+            <p class="text-end" >Before it's too late...</p>
+        </div>
+        <button id="game-start-btn" class="game-start-btn">Ready?</button>
+    </div>
+    <div class="main-game-container" >
+        <h1 class="main-title" >Bomb Squad</h1>
+        <canvas id="game-canvas" height="600" width="500" style="background-color: #666666;"></canvas>
+        <div id="root"></div>
+        <div class="icon-links">
+            <a href="https://github.com/joshkohane/Bomb-Squad" target="_blank" >
+                <i class="fab fa-github github-icon"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/josh-kohane-1472981b4/" target="_blank" >
+                <i class="fab fa-linkedin linkedin-icon"></i>
+            </a>
+        </div>
     </div>
 </body>
 </html>

@@ -10,6 +10,6 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-eval("console.log('WEBPACK IS WORKING')\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    console.log('WEBPACK');\n    const canvas = document.getElementById('game-canvas');\n    // canvas.fillStyle = 'black';\n})\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("console.log('WEBPACK IS WORKING')\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    console.log('WEBPACK');\n    const canvas = document.getElementById('game-canvas');\n    const gameStartBtn = document.getElementById('game-start-btn');\n    const gameStart = document.getElementById('game-start-container');\n\n\n    gameStartBtn.addEventListener('click', () => {\n        gameStart.classList.add('hidden')\n    })\n})\n\n//# sourceURL=webpack:///./src/index.js?");
 /******/ })()
 ;
