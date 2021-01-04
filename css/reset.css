@@ -15,7 +15,7 @@ span, footer, textarea, i {
   background: transparent;
 }
 
-Link {
+a {
   text-decoration: none;
 }
 

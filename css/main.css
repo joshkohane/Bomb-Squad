@@ -27,3 +27,8 @@ body {
     padding: 5px;
     font-size: 30px;
 }
+
+.github-icon:hover,
+.linkedin-icon:hover {
+    color: #a00000;
+}
