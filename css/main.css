@@ -27,6 +27,7 @@ body {
 
 .icon-links {
     padding: 20px;
+    z-index: 1;
 }
 
 .github-icon,
