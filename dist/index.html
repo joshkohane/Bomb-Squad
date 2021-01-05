@@ -8,13 +8,14 @@
     <link type="text/css" rel="stylesheet" href="../css/reset.css">
     <link type="text/css" rel="stylesheet" href="../css/main.css">
     <link type="text/css" rel="stylesheet" href="../css/game-start.css">
+    <link type="text/css" rel="stylesheet" href="../css/game.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1576428ae6.js" crossorigin="anonymous"></script>
     <title>Bomb Squad</title>
 </head>
 <body>
-    <div class="game-start-container" id="game-start-container" >
+    <div class="game-start-container hidden " id="game-start-container" >
         <div class="game-start">
             <h1 class="game-start-text" >We need your help to diffuse this bomb...</h1>
             <p class="game-start-text" >But hurry...there isn't much time</p>
@@ -23,14 +24,14 @@
         </div>
         <button id="game-start-btn" class="game-start-btn">Ready?</button>
     </div>
-    <div class="game-win-container  " id="game-win-container">
+    <div class="game-win-container hidden " id="game-win-container">
         <h1 class="game-end-title" >YOU WIN!</h1>
         <div class="game-start">
             <p class="game-start-text text-end" >Ready for the next level?</p>
         </div>
         <button id="game-win-btn" class="game-start-btn">Next Level</button>
     </div>
-    <div class="game-lose-container " id="game-lose-container">
+    <div class="game-lose-container hidden " id="game-lose-container">
         <h1 class="game-end-title" >YOU LOSE!</h1>
         <div class="game-start">
             <p class="game-start-text text-end" >Better luck next time...</p>
@@ -39,7 +40,17 @@
     </div>
     <div class="main-game-container" >
         <h1 class="main-title" >Bomb Squad</h1>
-        <canvas id="game-canvas" height="600" width="500" style="background-color: #666666;"></canvas>
+        <div id="game-canvas" class="game-canvas" >
+            <div class="bomb-outer-container">
+                <div class="bomb-top"></div>
+                <div class="bomb-container">
+                    <div class="time-outer-container" >
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <canvas id="game-canvas" height="600" width="500" style="background-color: #666666;"></canvas> -->
         <div id="root"></div>
         <div class="icon-links">
             <a href="https://github.com/joshkohane/Bomb-Squad" target="_blank" >

@@ -1,0 +1,49 @@
+.game-canvas {
+    width: 500px;
+    height: 600px;
+    background-color: #666666;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.bomb-outer-container {
+    position: absolute;
+    left: -25px;
+    padding-top: 150px;
+    padding-right: 100px;
+}
+
+.bomb-top {
+    position: absolute;
+    right: 170px;
+    top: 120px;
+    width: 200px;
+    height: 80px;
+    background-color: black;
+    transform: rotate(20deg);
+    border-top: 1px solid #8a8989;
+    border-radius: 20px;
+    box-shadow: inset 6px 6px 6px #8a8989;
+}
+
+.bomb-container {
+    width: 550px;
+    height: 550px;
+    border: 1px solid #8a8989;
+    border-radius: 50%;
+    background-color: black;
+    z-index: -1;
+    box-shadow: inset 6px 6px 6px #8a8989;
+}
+
+.time-outer-container {
+    position: absolute;
+    bottom: 150px;
+    right: calc(50% - 155px);
+    width: 400px;
+    height: 250px;
+    border: 7px solid red;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px #5c5c5c;
+}
