@@ -1,12 +1,39 @@
+ import Timer from './timer';
+ 
  class Game {
-     constructor(word) {
+     constructor(word, level) {
         this.word = word;
+        this.level = level;
         this.hiddenWord = new Array(this.word.length).fill('_');
-        // for (let i = 0; i < this.word.length-1; i++) {
-        //     this.hiddenWord.push('_')
-        // };
-        this.attempted = [];
-        this.remaining = Math.floor(this.word.length * 1.5)
+        this.attempted = ['a', 'b', 'c'];
+        this.remaining = Math.floor(this.word.length * 1.5);
+        this.timer = new Timer(this.level);
+
+        this.appendWord();
+        this.appendLetter();
+        this.appendGuesses();
+     }
+
+     appendGuesses() {
+         const remainingContainer = document.getElementById("bomb-remaining-number");
+         let p = document.createElement('p');
+         p.textContent = this.remaining;
+         remainingContainer.appendChild(p);
+     }
+
+     appendLetter() {
+        const letterContainer = document.getElementById("bomb-attempted-letters");
+        let p = document.createElement('p');
+        let letters = this.attempted.map(char => char.toUpperCase());
+        p.textContent = this.attempted.join('');
+        letterContainer.appendChild(p);
+     }
+
+     appendWord() {
+         const word = document.getElementById("word-container");
+         let p = document.createElement('p');
+         p.textContent = this.hiddenWord.join(' ');
+         word.appendChild(p);
      }
 
      attempedLetter(char) {
@@ -35,7 +62,7 @@
 
      lost() {
          let lost = false
-         if (this.remaining === 0) {
+         if (this.remaining === 0 || this.timer.timerOver()) {
              lost = true;
          }
          return lost;

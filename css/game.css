@@ -67,6 +67,7 @@
     font-family: 'Black Ops One', cursive;
     color: red;
     letter-spacing: 5px;
+    display: flex;
 }
 
 .clock-container {
@@ -110,4 +111,5 @@
 
 .bomb-attempted-letters {
     letter-spacing: 1px;
+    height: 22px;
 }

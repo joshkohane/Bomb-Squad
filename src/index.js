@@ -1,5 +1,6 @@
 console.log('WEBPACK IS WORKING')
 
+import Game from './game';
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log('WEBPACK');
@@ -23,4 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gameLoseBtn.addEventListener('click', () => {
         gameLose.classList.add('hidden')
     })
+
+    let game = new Game('active', 1)
 })
