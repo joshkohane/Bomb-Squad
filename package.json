@@ -1,0 +1,25 @@
+{
+  "name": "bomb_squad",
+  "version": "1.0.0",
+  "description": "A high stress code cracking game",
+  "main": "index.js",
+  "dependencies": {
+    "webpack-cli": "^4.3.1",
+    "webpack": "^5.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshkohane/Bomb-Squad.git"
+  },
+  "author": "Josh Kohane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshkohane/Bomb-Squad/issues"
+  },
+  "homepage": "https://github.com/joshkohane/Bomb-Squad#readme"
+}
