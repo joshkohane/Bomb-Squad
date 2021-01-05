@@ -23,6 +23,7 @@
     background-color: black;
     transform: rotate(20deg);
     border-top: 1px solid #8a8989;
+    border-bottom: 1px solid #141414;
     border-radius: 20px;
     box-shadow: inset 6px 6px 6px #8a8989;
 }
