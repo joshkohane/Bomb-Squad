@@ -2,8 +2,8 @@ import WordChoice from './word-choice';
  
  class Game {
     constructor() {
-        this.level = 1;
-        this.wordChoice;;
+        this.level;
+        this.wordChoice;
         this.interval;
         this.word;
         this.hiddenWord;
@@ -20,9 +20,9 @@ import WordChoice from './word-choice';
         this.hiddenWord = new Array(this.word.length).fill('_');
         this.attempted = [];
         this.remaining = Math.floor(this.word.length * 1.5);
-        this.interval = 1020 - (this.level * 20);
-        this.timeLeft = 21;
-        this.appendTime();
+        this.interval = 1030 - (this.level * 30);
+        this.timeLeft = 20;
+        this.appendTime("00:" + this.timeLeft);
         this.setClock();
         this.appendWord();
         this.appendLetter();
@@ -30,6 +30,7 @@ import WordChoice from './word-choice';
         this.appendLevel();
         console.log(this.word);
         console.log(this.level);
+        console.log(this.interval);
 
         // this.timer.reset();
         // this.timer.start();
@@ -43,9 +44,9 @@ import WordChoice from './word-choice';
         this.hiddenWord = new Array(this.word.length).fill('_');
         this.attempted = [];
         this.remaining = Math.floor(this.word.length * 1.5);
-        this.interval = 1020 - (this.level * 20);
-        this.timeLeft = 21;
-        this.appendTime();
+        this.interval = 1030 - (this.level * 30);
+        this.timeLeft = 20;
+        this.appendTime("00:" + this.timeLeft);
         this.setClock();
         this.appendWord();
         this.appendLetter();
@@ -53,6 +54,7 @@ import WordChoice from './word-choice';
         this.appendLevel();
         console.log(this.word);
         console.log(this.level);
+        console.log(this.interval);
 
          // this.timer.reset();
          // this.timer.start();
@@ -60,7 +62,7 @@ import WordChoice from './word-choice';
     }
 
     reset() {
-        this.timeLeft = 21;
+        this.timeLeft = 20;
         clearInterval(this.clockTick);
         this.attempted = [];
         // this.hiddenWord = new Array(this.word.length).fill('_');
@@ -78,6 +80,7 @@ import WordChoice from './word-choice';
         } else if (this.timeLeft >= 0) {
             time = '00:0' + this.timeLeft;
         } else {
+            console.log('in the timer')
             this.lost();
         }
         this.appendTime(time);
@@ -121,9 +124,10 @@ import WordChoice from './word-choice';
             })
         }
         letterContainer.appendChild(p);
-        if (this.remaining === 0) {
-            this.lost();
-        }
+        // if (this.remaining === 0) {
+        //     console.log('CALLING LOST FROM APPENDLETTER')
+        //     this.lost();
+        // }
     }
 
     appendWord() {
@@ -148,6 +152,18 @@ import WordChoice from './word-choice';
             })
         }
         levelNum.appendChild(p);
+    }
+
+    appendLose() {
+        const gameStart = document.getElementById("game-start");
+        let p = document.createElement('p');
+        p.textContent = this.word.toUpperCase();
+        if (gameStart.hasChildNodes()) {
+            gameStart.childNodes.forEach(child => {
+                gameStart.removeChild(child);
+            })
+        }
+        gameStart.appendChild(p);
     }
 
     attempedLetter(char) {
@@ -186,6 +202,7 @@ import WordChoice from './word-choice';
     lost() {
         console.log("lost")
         this.reset();
+        this.appendLose();
         const gameLose = document.getElementById('game-lose-container');
         gameLose.classList.remove('hidden')
     }

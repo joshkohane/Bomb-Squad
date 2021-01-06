@@ -42,6 +42,17 @@
     padding-bottom: 40px;
 }
 
+.game-end {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#game-start > p {
+    padding: 0px 10px;
+
+}
+
 .game-start-text {
     font-size: 30px;
     padding: 20px 0;
