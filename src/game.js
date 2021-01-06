@@ -13,8 +13,7 @@ import WordChoice from './word-choice';
         this.clockTick;
         this.timeLeft;
 
-        this.start();
-
+        // this.start();
     }
     
     start() {
@@ -81,7 +80,7 @@ import WordChoice from './word-choice';
     }
 
     setEyes() {
-        let random = Math.floor(Math.random() * 10)
+        // let random = Math.floor(Math.random() * 10)
         this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
     }
 
