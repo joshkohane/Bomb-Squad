@@ -15,7 +15,7 @@
     <title>Bomb Squad</title>
 </head>
 <body>
-    <div class="game-start-container hidden " id="game-start-container" >
+    <div class="game-start-container " id="game-start-container" >
         <div class="game-start">
             <h1 class="game-start-text" >We need your help to diffuse this bomb...</h1>
             <p class="game-start-text" >But hurry...there isn't much time</p>
@@ -24,12 +24,12 @@
         </div>
         <button id="game-start-btn" class="game-start-btn">Ready?</button>
     </div>
-    <div class="game-win-container hidden " id="game-win-container">
+    <div class="game-win-container hidden" id="game-win-container">
         <h1 class="game-end-title" >YOU WIN!</h1>
         <div class="game-start">
             <p class="game-start-text text-end" >Ready for the next level?</p>
         </div>
-        <button id="game-win-btn" class="game-start-btn">Next Level</button>
+        <button id="game-win-btn" class="game-start-btn" >Next Level</button>
     </div>
     <div class="game-lose-container hidden " id="game-lose-container">
         <h1 class="game-end-title" >YOU LOSE!</h1>
@@ -40,14 +40,17 @@
     </div>
     <div class="main-game-container" >
         <h1 class="main-title" >Bomb Squad</h1>
+        <h2 class="level-title" >
+            <div class="level-number" >Level</div>
+            <div class="level-number" id="level-number" ></div>
+        </h2>
         <div id="game-canvas" class="game-canvas" >
             <div class="bomb-outer-container">
                 <div class="bomb-top"></div>
                 <div class="bomb-container">
-                    <div class="time-outer-container " id="time-outer-container " >
+                    <div class="time-outer-container " id="time-outer-container" >
                         <div class="clock-outer-container">
-                            <div class="clock-container" id="clock-container" >00:
-                                <!-- <p>00</p> -->
+                            <div class="clock-container" id="clock-container" >
                             </div>
                         </div>
                         <div class="word-outer-container">

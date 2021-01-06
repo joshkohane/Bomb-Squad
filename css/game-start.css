@@ -3,6 +3,11 @@
     to {width: 100%;}
 }
 
+@keyframes fade-in {
+    from {opacity: 0}
+    to {opacity: 1;}
+}
+
 .game-start-container,
 .game-win-container,
 .game-lose-container {
@@ -17,6 +22,12 @@
     justify-content: center;
     align-items: center;
     z-index: 10;
+}
+
+.game-win-container,
+.game-lose-container {
+    animation: fade-in 1.5s ease-in-out;
+    /* animation-delay: 2s; */
 }
 
 .hidden {
@@ -40,7 +51,7 @@
     /* width: 50%; */
     font-size: 30px;
     padding: 20px 0;
-    animation: typewriter 3.5s steps(40, end);
+    animation: typewriter 2s steps(40, end);
     overflow: hidden;
     white-space: nowrap;
 }

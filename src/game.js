@@ -1,79 +1,201 @@
- import Timer from './timer';
+import WordChoice from './word-choice';
  
  class Game {
-     constructor(word, level) {
-        this.word = word;
-        this.level = level;
+    constructor() {
+        this.level = 1;
+        this.wordChoice;;
+        this.interval;
+        this.word;
+        this.hiddenWord;
+        this.attempted;
+        this.remaining;
+        this.clockTick;
+        this.timeLeft;
+    }
+    
+    start() {
+        this.level = 1;
+        this.wordChoice = new WordChoice(this.level);
+        this.word = this.wordChoice.chooseWord();
         this.hiddenWord = new Array(this.word.length).fill('_');
-        this.attempted = ['a', 'b', 'c'];
+        this.attempted = [];
         this.remaining = Math.floor(this.word.length * 1.5);
-        this.timer = new Timer(this.level);
-
+        this.interval = 1020 - (this.level * 20);
+        this.timeLeft = 21;
+        this.appendTime();
+        this.setClock();
         this.appendWord();
         this.appendLetter();
         this.appendGuesses();
-     }
+        this.appendLevel();
+        console.log(this.word);
+        console.log(this.level);
 
-     appendGuesses() {
-         const remainingContainer = document.getElementById("bomb-remaining-number");
-         let p = document.createElement('p');
-         p.textContent = this.remaining;
-         remainingContainer.appendChild(p);
-     }
+        // this.timer.reset();
+        // this.timer.start();
+        // this.word = this.wordChoice.chooseWord();
+    }
+    
+    restart() {
+        this.level += 1;
+        this.wordChoice = new WordChoice(this.level);
+        this.word = this.wordChoice.chooseWord();
+        this.hiddenWord = new Array(this.word.length).fill('_');
+        this.attempted = [];
+        this.remaining = Math.floor(this.word.length * 1.5);
+        this.interval = 1020 - (this.level * 20);
+        this.timeLeft = 21;
+        this.appendTime();
+        this.setClock();
+        this.appendWord();
+        this.appendLetter();
+        this.appendGuesses();
+        this.appendLevel();
+        console.log(this.word);
+        console.log(this.level);
 
-     appendLetter() {
+         // this.timer.reset();
+         // this.timer.start();
+         // this.word = this.wordChoice.chooseWord();
+    }
+
+    reset() {
+        this.timeLeft = 21;
+        clearInterval(this.clockTick);
+        this.attempted = [];
+        // this.hiddenWord = new Array(this.word.length).fill('_');
+    }
+
+    setClock() {
+        this.clockTick = setInterval(this.tick.bind(this), this.interval);
+    }
+
+    tick() {
+        this.timeLeft -= 1;
+        let time;
+        if (this.timeLeft >= 10) {
+            time = '00:' + this.timeLeft;
+        } else if (this.timeLeft >= 0) {
+            time = '00:0' + this.timeLeft;
+        } else {
+            this.lost();
+        }
+        this.appendTime(time);
+    }
+
+    appendTime(time) {
+        const clock = document.getElementById("clock-container");
+        let p = document.createElement('p');
+        p.textContent = time;
+        if (clock.hasChildNodes()) {
+            clock.childNodes.forEach(child => {
+                clock.removeChild(child);
+            })
+        }
+        clock.appendChild(p);
+    }
+
+    appendGuesses() {
+        const remainingContainer = document.getElementById("bomb-remaining-number");
+        let p = document.createElement('p');
+        p.textContent = this.remaining;
+        if (remainingContainer.hasChildNodes()) {
+            remainingContainer.childNodes.forEach(child => {
+            remainingContainer.removeChild(child);
+        })
+        }
+        remainingContainer.appendChild(p);
+        if (this.remaining === 0) {
+            this.lost();
+        }
+    }
+
+    appendLetter() {
         const letterContainer = document.getElementById("bomb-attempted-letters");
         let p = document.createElement('p');
         let letters = this.attempted.map(char => char.toUpperCase());
-        p.textContent = this.attempted.join('');
+        p.textContent = this.attempted.join('').toUpperCase();
+        if (letterContainer.hasChildNodes()) {
+            letterContainer.childNodes.forEach(child => {
+                letterContainer.removeChild(child);
+            })
+        }
         letterContainer.appendChild(p);
-     }
+        if (this.remaining === 0) {
+            this.lost();
+        }
+    }
 
-     appendWord() {
-         const word = document.getElementById("word-container");
-         let p = document.createElement('p');
-         p.textContent = this.hiddenWord.join(' ');
-         word.appendChild(p);
-     }
+    appendWord() {
+        const word = document.getElementById("word-container");
+        let p = document.createElement('p');
+        p.textContent = this.hiddenWord.join('').toUpperCase();
+        if (word.hasChildNodes()) {
+            word.childNodes.forEach(child => {
+                word.removeChild(child);
+            })
+        }
+        word.appendChild(p);
+    }
 
-     attempedLetter(char) {
-         if (this.word.includes(char)) {
-            this.word.split('').map(idx => {
-                if (this.word[idx] === char) {
+    appendLevel() {
+        const levelNum = document.getElementById("level-number");
+        let p = document.createElement('p');
+        p.textContent = this.level;
+        if (levelNum.hasChildNodes()) {
+            levelNum.childNodes.forEach(child => {
+                levelNum.removeChild(child);
+            })
+        }
+        levelNum.appendChild(p);
+    }
+
+    attempedLetter(char) {
+        if (this.word.includes(char)) {
+            this.word.split('').map((letter, idx) => {
+                if (letter === char) {
                     this.hiddenWord[idx] = char;
+                    this.appendWord();
                 }
             })
-         } else {
-             this.attempted.push(char);
-             this.remaining = this.remaining - 1;
-             // CALL ANOTHER METHOD THAT SHOWS A BIG RED X
-         }
-     }
+            this.won();
+        } else {
+            this.attempted.push(char);
+            this.remaining -= 1;
+            this.appendLetter();
+            this.appendGuesses();
+                // CALL ANOTHER METHOD THAT SHOWS A BIG RED X
+        }
+    }
 
-     won() {
-         let won = true;
-         this.hiddenWord.forEach(char => {
-             if (char === '_') {
-                 won = false;
-             }
-         })
-         return won;
-     }
+    won() {
+        console.log('won?')
+        let won = true;
+        this.hiddenWord.forEach(char => {
+            if (char === '_') {
+                won = false;
+            }
+        })
+        if (won) {
+            this.reset();
+            const gameWin = document.getElementById('game-win-container');
+            setTimeout(gameWin.classList.remove('hidden'), 5000)
+        }
+    }
 
-     lost() {
-         let lost = false
-         if (this.remaining === 0 || this.timer.timerOver()) {
-             lost = true;
-         }
-         return lost;
-     }
+    lost() {
+        console.log("lost")
+        this.reset();
+        const gameLose = document.getElementById('game-lose-container');
+        gameLose.classList.remove('hidden')
+    }
 
-     gameOver() {
-         if (this.won() || this.lost()) {
-             return true;
-         }
-         return false;
-     }
- }
+    //  gameOver() {
+    //      if (this.won() || this.lost()) {
+    //          return true;
+    //      }
+    //      return false;
+    //  }
+}
 
- export default Game;
+export default Game;
