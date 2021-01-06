@@ -28,6 +28,84 @@
     box-shadow: inset 6px 6px 6px #8a8989;
 }
 
+.bomb-eyes-container {
+    position: absolute;
+    left: 165px;
+    top: 220px;
+    /* background-color: white; */
+    /* opacity: .5; */
+    width: 35%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bomb-eyes {
+    position: relative;
+    height: 100%;
+    width: 60px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 10;
+    opacity: 1;
+    overflow: hidden;
+    box-shadow: inset 4px 4px 4px #a3a3a3;
+}
+
+.bomb-pupil {
+    position: absolute;
+    top: 30px;
+    left: -18px;
+    height: 50px;
+    width: 45px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.bomb-pupil-right {
+    position: absolute;
+    top: 30px;
+    right: -18px;
+    height: 50px;
+    width: 45px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.bomb-sweat-container {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    height: 50%;
+    width: 25px;
+    /* background-color: white; */
+}
+
+.bomb-sweat {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes sweat-fall {
+    from {top: 0}
+    to {top: 100%}
+}
+
+.bomb-sweat-drop {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #9898d6;
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
+    box-shadow: inset 4px 4px 4px #cdc6fd;
+    border: 2px solid #dfdaff;
+    animation: sweat-fall 4s infinite;
+}
+
 .bomb-container {
     width: 550px;
     height: 550px;

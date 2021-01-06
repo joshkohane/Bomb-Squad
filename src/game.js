@@ -5,12 +5,16 @@ import WordChoice from './word-choice';
         this.level;
         this.wordChoice;
         this.interval;
+        this.eyeInterval;
         this.word;
         this.hiddenWord;
         this.attempted;
         this.remaining;
         this.clockTick;
         this.timeLeft;
+
+        this.start();
+
     }
     
     start() {
@@ -24,6 +28,7 @@ import WordChoice from './word-choice';
         this.timeLeft = 20;
         this.appendTime("00:" + this.timeLeft);
         this.setClock();
+        this.setEyes();
         this.appendWord();
         this.appendLetter();
         this.appendGuesses();
@@ -48,6 +53,7 @@ import WordChoice from './word-choice';
         this.timeLeft = 20;
         this.appendTime("00:" + this.timeLeft);
         this.setClock();
+        this.setEyes();
         this.appendWord();
         this.appendLetter();
         this.appendGuesses();
@@ -64,6 +70,7 @@ import WordChoice from './word-choice';
     reset() {
         this.timeLeft = 20;
         clearInterval(this.clockTick);
+        clearInterval(this.eyeInterval);
         this.attempted = [];
         // this.hiddenWord = new Array(this.word.length).fill('_');
     }
@@ -72,11 +79,20 @@ import WordChoice from './word-choice';
         this.clockTick = setInterval(this.tick.bind(this), this.interval);
     }
 
+    setEyes() {
+        let random = Math.floor(Math.random() * 10)
+        this.eyeInterval = setInterval(this.moveEyes.bind(this), 1000 * random);
+    }
+
     tick() {
         this.timeLeft -= 1;
         let time;
-        if (this.timeLeft >= 10) {
+        if (this.timeLeft > 10) {
             time = '00:' + this.timeLeft;
+        } else if (this.timeLeft === 10) {
+            console.log('time is 10')
+            time = '00:' + this.timeLeft;
+            this.moveSweat();
         } else if (this.timeLeft >= 0) {
             time = '00:0' + this.timeLeft;
         } else {
@@ -84,6 +100,26 @@ import WordChoice from './word-choice';
             this.lost();
         }
         this.appendTime(time);
+    }
+
+    moveEyes() {
+        const eyes = document.querySelectorAll("#bomb-pupil");
+        for (let i = 0; i < eyes.length; i++) {
+            if (eyes[i].classList.contains("bomb-pupil")) {
+                eyes[i].classList.add("bomb-pupil-right")
+                eyes[i].classList.remove("bomb-pupil")
+            } else {
+                eyes[i].classList.add("bomb-pupil")
+                eyes[i].classList.remove("bomb-pupil-right")
+            }
+        }
+        // eyes.forEach(eye => {
+        // })
+    }
+
+    moveSweat() {
+        const sweat = document.getElementById("bomb-sweat-drop");
+        sweat.classList.add("bomb-sweat-drop")
     }
 
     appendTime(time) {
