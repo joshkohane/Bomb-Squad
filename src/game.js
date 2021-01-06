@@ -68,6 +68,7 @@ import WordChoice from './word-choice';
     }
 
     reset() {
+        console.log('reset')
         this.timeLeft = 20;
         clearInterval(this.clockTick);
         clearInterval(this.eyeInterval);
@@ -81,7 +82,7 @@ import WordChoice from './word-choice';
 
     setEyes() {
         let random = Math.floor(Math.random() * 10)
-        this.eyeInterval = setInterval(this.moveEyes.bind(this), 1000 * random);
+        this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
     }
 
     tick() {
@@ -119,7 +120,7 @@ import WordChoice from './word-choice';
 
     moveSweat() {
         const sweat = document.getElementById("bomb-sweat-drop");
-        sweat.classList.add("bomb-sweat-drop")
+        sweat.classList.add("bomb-sweat-drop");
     }
 
     appendTime(time) {
@@ -232,6 +233,8 @@ import WordChoice from './word-choice';
             this.reset();
             const gameWin = document.getElementById('game-win-container');
             setTimeout(gameWin.classList.remove('hidden'), 5000)
+            const sweat = document.getElementById("bomb-sweat-drop");
+            sweat.classList.remove("bomb-sweat-drop");
         }
     }
 
@@ -240,7 +243,9 @@ import WordChoice from './word-choice';
         this.reset();
         this.appendLose();
         const gameLose = document.getElementById('game-lose-container');
-        gameLose.classList.remove('hidden')
+        gameLose.classList.remove('hidden');
+        const sweat = document.getElementById("bomb-sweat-drop");
+        sweat.classList.remove("bomb-sweat-drop");
     }
 
     //  gameOver() {
