@@ -1,6 +1,6 @@
 class Explosion {
     constructor() {
-        this.COLORS = ["red", "#db0404", "#7d0303", "orange", "black"];
+        this.COLORS = ["#e30000", "#db0404", "#7d0303", "orange", "black"];
         this.DISTANCE = 500;
         this.x;
         this.y
@@ -24,7 +24,6 @@ class Explosion {
             div.className = "explosion-piece";
             div.style.backgroundColor = this.chooseColor();
             let thisPosition = this.chooseDistance();
-            // div.style.transform = "translate(Math.floor(Math.random() * 100)vw, Math.floor(Math.random() * 100)vh)";
             container.appendChild(div);
             div.style.right = `${thisPosition.x}px`
             div.style.top = `${thisPosition.y}px`

@@ -47,9 +47,6 @@ import Explosion from './explosion';
             musicPlayer.play();
             musicPlayer.currentTime = 0;
         }
-        // this.timer.reset();
-        // this.timer.start();
-        // this.word = this.wordChoice.chooseWord();
     }
     
     restart() {
@@ -79,9 +76,6 @@ import Explosion from './explosion';
             musicPlayer.play();
             musicPlayer.currentTime = 0;
         }
-         // this.timer.reset();
-         // this.timer.start();
-         // this.word = this.wordChoice.chooseWord();
     }
 
     reset() {
@@ -103,7 +97,6 @@ import Explosion from './explosion';
                 loseBtn.removeChild(child);
             })
         }
-        // this.hiddenWord = new Array(this.word.length).fill('_');
     }
 
     setClock() {
@@ -111,7 +104,6 @@ import Explosion from './explosion';
     }
 
     setEyes() {
-        // let random = Math.floor(Math.random() * 10)
         this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
     }
 
@@ -124,7 +116,6 @@ import Explosion from './explosion';
             console.log('time is 10')
             time = '00:' + this.timeLeft;
             this.moveSweat();
-            // this.appendRotate();
         } else if (this.timeLeft >= 0) {
             time = '00:0' + this.timeLeft;
         } else {
@@ -145,8 +136,6 @@ import Explosion from './explosion';
                 eyes[i].classList.remove("bomb-pupil-right")
             }
         }
-        // eyes.forEach(eye => {
-        // })
     }
 
     moveSweat() {
@@ -192,10 +181,6 @@ import Explosion from './explosion';
             })
         }
         letterContainer.appendChild(p);
-        // if (this.remaining === 0) {
-        //     console.log('CALLING LOST FROM APPENDLETTER')
-        //     this.lost();
-        // }
     }
 
     appendWord() {
@@ -248,7 +233,6 @@ import Explosion from './explosion';
             this.remaining -= 1;
             this.appendLetter();
             this.appendGuesses();
-                // CALL ANOTHER METHOD THAT SHOWS A BIG RED X
         }
     }
 
@@ -340,13 +324,6 @@ import Explosion from './explosion';
         const sweat = document.getElementById("bomb-sweat-drop");
         sweat.classList.remove("bomb-sweat-drop");
     }
-
-    //  gameOver() {
-    //      if (this.won() || this.lost()) {
-    //          return true;
-    //      }
-    //      return false;
-    //  }
 }
 
 export default Game;

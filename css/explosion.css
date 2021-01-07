@@ -19,7 +19,7 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    background-color: red;
+    background-color: #e30000;
     transition: all 1s ease-out;
     z-index: 11;
 }

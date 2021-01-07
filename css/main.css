@@ -14,7 +14,7 @@ body {
 }
 
 .main-title {
-    color: red;
+    color: #e30000;
     font-size: 60px;
     padding: 15px 0 0px;
     font-family: 'Black Ops One', cursive;
@@ -22,7 +22,7 @@ body {
 }
 
 .level-title {
-    color: red;
+    color: #e30000;
     font-size: 40px;
     padding-bottom: 10px;
     font-family: 'Black Ops One', cursive;
@@ -35,7 +35,7 @@ body {
 }
 
 #game-canvas {
-    border: 10px solid red;
+    border: 10px solid #e30000;
 }
 
 .icon-links {
@@ -47,7 +47,7 @@ body {
 .github-icon,
 .linkedin-icon,
 .volume-icon {
-    color: red;
+    color: #e30000;
     padding: 10px;
     font-size: 30px;
     cursor: pointer;
