@@ -1,4 +1,5 @@
 import WordChoice from './word-choice';
+import Explosion from './explosion';
  
  class Game {
     constructor() {
@@ -12,11 +13,13 @@ import WordChoice from './word-choice';
         this.remaining;
         this.clockTick;
         this.timeLeft;
+        this.explosion = new Explosion();
 
-        // this.start();
+        this.start();
     }
     
     start() {
+        this.explosion.remove();
         this.level = 1;
         this.wordChoice = new WordChoice(this.level);
         this.word = this.wordChoice.chooseWord();
@@ -42,6 +45,7 @@ import WordChoice from './word-choice';
     }
     
     restart() {
+        this.explosion.remove();
         this.level += 1;
         this.wordChoice = new WordChoice(this.level);
         this.word = this.wordChoice.chooseWord();
@@ -239,10 +243,11 @@ import WordChoice from './word-choice';
 
     lost() {
         console.log("lost")
+        this.explosion.explode();
         this.reset();
         this.appendLose();
         const gameLose = document.getElementById('game-lose-container');
-        gameLose.classList.remove('hidden');
+        setTimeout(() => {gameLose.classList.remove('hidden'); }, 500);
         const sweat = document.getElementById("bomb-sweat-drop");
         sweat.classList.remove("bomb-sweat-drop");
     }

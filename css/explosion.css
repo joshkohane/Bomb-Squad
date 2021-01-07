@@ -1,0 +1,25 @@
+.explosion-container {
+    position: absolute;
+    right: 210px;
+    top: 70px;
+    height: 100px;
+    width: 100px;
+    /* background-color: white; */
+}
+
+.explosion-container.start .explosion-piece {
+    right: 35px !important;
+    top: 30px !important;
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.explosion-piece {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: red;
+    transition: all 1s ease-out;
+    z-index: 11;
+}
