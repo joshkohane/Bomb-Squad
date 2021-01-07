@@ -1,10 +1,10 @@
 .fire-container {
     position: absolute;
-    left: 50px;
-    top: 50px;
+    left: -115px;
+    top: -120px;
     height: 200px;
     width: 200px;
-    
+    transform: rotate(-150deg);
     /* background-color: blue; */
 }
 

@@ -37,6 +37,7 @@ import Explosion from './explosion';
         this.appendLetter();
         this.appendGuesses();
         this.appendLevel();
+        this.appendRotate();
         console.log(this.word);
         console.log(this.level);
         console.log(this.interval);
@@ -63,6 +64,7 @@ import Explosion from './explosion';
         this.appendLetter();
         this.appendGuesses();
         this.appendLevel();
+        this.appendRotate();
         console.log(this.word);
         console.log(this.level);
         console.log(this.interval);
@@ -77,17 +79,30 @@ import Explosion from './explosion';
         this.timeLeft = 20;
         clearInterval(this.clockTick);
         clearInterval(this.eyeInterval);
+        setTimeout(() => this.removeRotate(), 1500);
         this.attempted = [];
+        const winBtn = document.getElementById("game-win-btn");
+        if (winBtn.hasChildNodes()) {
+            winBtn.childNodes.forEach(child => {
+                winBtn.removeChild(child);
+            })
+        }
+        const loseBtn = document.getElementById("game-lose-btn");
+        if (loseBtn.hasChildNodes()) {
+            loseBtn.childNodes.forEach(child => {
+                loseBtn.removeChild(child);
+            })
+        }
         // this.hiddenWord = new Array(this.word.length).fill('_');
     }
 
     setClock() {
-        // this.clockTick = setInterval(this.tick.bind(this), this.interval);
+        this.clockTick = setInterval(this.tick.bind(this), this.interval);
     }
 
     setEyes() {
         // let random = Math.floor(Math.random() * 10)
-        // this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
+        this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
     }
 
     tick() {
@@ -99,6 +114,7 @@ import Explosion from './explosion';
             console.log('time is 10')
             time = '00:' + this.timeLeft;
             this.moveSweat();
+            // this.appendRotate();
         } else if (this.timeLeft >= 0) {
             time = '00:0' + this.timeLeft;
         } else {
@@ -226,6 +242,49 @@ import Explosion from './explosion';
         }
     }
 
+    appendRotate() {
+        const container = document.getElementById("wick-container");
+        if (container.classList.contains("rotate-container")) {
+            container.classList.remove("rotate-container");
+        }
+        container.classList.add("rotate-container");
+        const rotateContainer = document.getElementsByClassName("rotate-container")[0];
+        rotateContainer.style.animation = `turn ${(this.interval * 20) + (this.interval * 6)}ms linear`;
+    }
+
+    appendBtn() {
+        const loseBtn = document.getElementById("game-lose-btn");
+        let button = document.createElement('button');
+        button.textContent = "Try Again";
+        button.classList.add("game-start-btn");
+        if (loseBtn.hasChildNodes()) {
+            loseBtn.childNodes.forEach(child => {
+                loseBtn.removeChild(child);
+            })
+        }
+        loseBtn.appendChild(button);
+    }
+
+    appendWinBtn() {
+        const winBtn = document.getElementById("game-win-btn");
+        let button = document.createElement('button');
+        button.textContent = "Next Level";
+        button.classList.add("game-start-btn");
+        if (winBtn.hasChildNodes()) {
+            winBtn.childNodes.forEach(child => {
+                winBtn.removeChild(child);
+            })
+        }
+        winBtn.appendChild(button);
+    }
+
+    removeRotate() {
+        const rotateContainer = document.getElementsByClassName("rotate-container")[0];
+        rotateContainer.style.removeProperty("animation");
+        const container = document.getElementById("wick-container");
+        container.classList.remove("rotate-container");
+    }
+
     won() {
         console.log('won?')
         let won = true;
@@ -237,7 +296,8 @@ import Explosion from './explosion';
         if (won) {
             this.reset();
             const gameWin = document.getElementById('game-win-container');
-            setTimeout(gameWin.classList.remove('hidden'), 5000)
+            setTimeout(gameWin.classList.remove('hidden'), 500);
+            setTimeout(() => { this.appendWinBtn() }, 2500);
             const sweat = document.getElementById("bomb-sweat-drop");
             sweat.classList.remove("bomb-sweat-drop");
         }
@@ -250,6 +310,7 @@ import Explosion from './explosion';
         this.appendLose();
         const gameLose = document.getElementById('game-lose-container');
         setTimeout(() => {gameLose.classList.remove('hidden'); }, 500);
+        setTimeout(() => {this.appendBtn()}, 2500);
         const sweat = document.getElementById("bomb-sweat-drop");
         sweat.classList.remove("bomb-sweat-drop");
     }

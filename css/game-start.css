@@ -80,14 +80,20 @@
     white-space: nowrap;
 }
 
+.game-end-btn {
+    display: flex;
+    justify-content: center;
+}
+
 .game-start-btn {
     position: absolute;
     font-size: 30px;
     border: 1px solid red;
     padding: 5px 10px;
     animation: delay 4s;
-    left: calc(50% - 70px);
+    /* left: calc(50% - 70px); */
     bottom: 200px;
+    animation: fade-in .5s ease-in-out;
 }
 
 .game-start-btn:hover {
