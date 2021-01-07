@@ -94,7 +94,7 @@
 
 @keyframes grow {
     0% {width: 25px; height: 30px; top: 25px;}
-    40% {width: 20px; height: 25px; top: 28px; opacity: .7}
+    40% {width: 23px; height: 25px; top: 26px; opacity: .7}
     50% {width: 25px; height: 30px; top: 25px;}
     65% {width: 23px; height: 28px; top: 26px; opacity: .7}
     80% {width: 25px; height: 30px; top: 25px;}

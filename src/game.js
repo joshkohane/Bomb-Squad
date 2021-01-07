@@ -82,12 +82,12 @@ import Explosion from './explosion';
     }
 
     setClock() {
-        this.clockTick = setInterval(this.tick.bind(this), this.interval);
+        // this.clockTick = setInterval(this.tick.bind(this), this.interval);
     }
 
     setEyes() {
         // let random = Math.floor(Math.random() * 10)
-        this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
+        // this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
     }
 
     tick() {
