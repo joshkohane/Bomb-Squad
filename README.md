@@ -22,8 +22,26 @@ The design of the main game screen is meant to be playful and fun, a diffusion o
 
 ## Animations
 
-A main feature of Bomb Squad is the animations. These include moving eyes, a drop of sweat when the clock is nearly out of time, and a moving wick with an animated flame at its tail. But most exciting of all, is the explosion that occurs upon losing a level. This explosion is made up of 400 particles, each moving in a different direction. Initially, this was a challenge. I needed each of the 400 particles to travel in a different direction. Below is the code with my solution:
+A main feature of Bomb Squad is the animations. These include moving eyes, a drop of sweat when the clock is nearly out of time, and a moving wick with an animated flame at its tail. But most exciting of all, is the explosion that occurs upon losing a level. This explosion is made up of 400 particles, each moving in a different direction. Initially, this was a challenge. I needed each of the 400 particles to travel in a different direction. Below is the code with my solution followed by a photo of the explosion in process:
 
 ```javascript
-
+explode() {
+        const container = document.getElementById("explosion-container");
+        container.classList.add("start")
+        for (let i = 0; i < 400; i++) {
+            let div = document.createElement('div');
+            div.className = "explosion-piece";
+            div.style.backgroundColor = this.chooseColor();
+            let thisPosition = this.chooseDistance();
+            container.appendChild(div);
+            div.style.right = `${thisPosition.x}px`
+            div.style.top = `${thisPosition.y}px`
+        }
+        setTimeout(() => container.classList.remove("start"), 0);
+    }
 ```
+![Bomb Squad Game Play](https://github.com/joshkohane/NJTimesCooking/blob/master/app/assets/images/modal_screenshot.png)
+
+## Additional Resources
+
+Background music via Fesliyan Studios
