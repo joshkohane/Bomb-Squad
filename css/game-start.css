@@ -30,6 +30,19 @@
     /* animation-delay: 2s; */
 }
 
+.game-start-inner-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.game-start-inner {
+    position: absolute;
+    width: 680px;
+    top: 240px;
+    left: calc(50% - 330px);
+}
+
 .hidden {
     display: none;
 }
@@ -68,10 +81,13 @@
 }
 
 .game-start-btn {
+    position: absolute;
     font-size: 30px;
     border: 1px solid red;
     padding: 5px 10px;
     animation: delay 4s;
+    left: calc(50% - 70px);
+    bottom: 200px;
 }
 
 .game-start-btn:hover {

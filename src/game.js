@@ -15,7 +15,9 @@ import Explosion from './explosion';
         this.timeLeft;
         this.explosion = new Explosion();
 
-        this.start();
+        // this.explosion.explode();
+
+        // this.start();
     }
     
     start() {

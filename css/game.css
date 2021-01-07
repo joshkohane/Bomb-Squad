@@ -155,6 +155,10 @@
 .word-container {
     font-size: 30px;
 }
+
+.word-container > p {
+    letter-spacing: 10px;
+}
 /* 
 .word-outer-container {
 } */

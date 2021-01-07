@@ -16,15 +16,15 @@ class WordChoice {
 
     chooseWord() {
         let wordList;
-        if (this.level >= 1 && this.level < 2) {
+        if (this.level >= 1 && this.level < 3) {
             wordList = this.sixLetters;
-        } else if (this.level >= 2 && this.level < 3) {
+        } else if (this.level >= 3 && this.level < 5) {
             wordList = this.sevenLetters;
-        } else if (this.level >= 3 && this.level < 4) {
+        } else if (this.level >= 5 && this.level < 7) {
             wordList = this.eightLetters;
-        } else if (this.level >= 4 && this.level < 5) {
+        } else if (this.level >= 7 && this.level < 9) {
             wordList = this.nineLetters;
-        } else if (this.level >= 5) {
+        } else if (this.level >= 9) {
             wordList = this.tenLetters;
         }
 

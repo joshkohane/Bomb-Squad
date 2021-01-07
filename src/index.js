@@ -3,6 +3,33 @@ console.log('WEBPACK IS WORKING')
 import Game from './game';
 import WordChoice from './word-choice';
 
+
+function homescreen() {
+    const start = document.getElementById('game-start-inner');
+    let p = document.createElement('p');
+    p.classList.add("text-end")
+    let p2 = document.createElement('p');
+    p2.classList.add("text-end")
+    let p3 = document.createElement('p');
+    p3.classList.add("text-end")
+    let p4 = document.createElement('p');
+    p4.classList.add("text-end")
+    p.textContent = "We need your help to diffuse this bomb...";
+    p2.textContent = "But hurry...there isn't much time";
+    p3.textContent = "Try to guess the code one letter at a time";
+    p4.textContent = "Before it's too late...";
+    start.appendChild(p);
+    setTimeout(() => start.appendChild(p2), 3000);
+    setTimeout(() => start.appendChild(p3), 6000);
+    setTimeout(() => start.appendChild(p4), 9000);
+    // if (clock.hasChildNodes()) {
+    //     clock.childNodes.forEach(child => {
+    //         clock.removeChild(child);
+    //     })
+    // }
+    // clock.appendChild(p);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log('WEBPACK');
     const canvas = document.getElementById('game-canvas');
@@ -13,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameLoseBtn = document.getElementById('game-lose-btn');
     const gameLose = document.getElementById('game-lose-container');
 
-
-    
     // let currentLevel = 1
     // let wordChoice = new WordChoice(currentLevel)
     
+    homescreen();
+
     let game = new Game()
     
     gameStartBtn.addEventListener('click', () => {
