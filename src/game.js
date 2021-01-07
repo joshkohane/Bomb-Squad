@@ -29,7 +29,7 @@ import Explosion from './explosion';
         this.attempted = [];
         this.remaining = Math.floor(this.word.length * 1.5);
         this.interval = 1030 - (this.level * 30);
-        this.timeLeft = 20;
+        this.timeLeft = 30;
         this.appendTime("00:" + this.timeLeft);
         this.setClock();
         this.setEyes();
@@ -56,7 +56,7 @@ import Explosion from './explosion';
         this.attempted = [];
         this.remaining = Math.floor(this.word.length * 1.5);
         this.interval = 1030 - (this.level * 30);
-        this.timeLeft = 20;
+        this.timeLeft = 30;
         this.appendTime("00:" + this.timeLeft);
         this.setClock();
         this.setEyes();
@@ -249,7 +249,7 @@ import Explosion from './explosion';
         }
         container.classList.add("rotate-container");
         const rotateContainer = document.getElementsByClassName("rotate-container")[0];
-        rotateContainer.style.animation = `turn ${(this.interval * 20) + (this.interval * 6)}ms linear`;
+        rotateContainer.style.animation = `turn ${(this.interval * 30) + (this.interval * 9)}ms linear`;
     }
 
     appendBtn() {

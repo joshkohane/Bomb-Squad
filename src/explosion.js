@@ -11,8 +11,8 @@ class Explosion {
     }
 
     chooseDistance() {
-        const x = this.DISTANCE - Math.floor(Math.random() * this.DISTANCE * 2);
-        const y = this.DISTANCE - Math.floor(Math.random() * this.DISTANCE * 2);
+        const x = this.DISTANCE - Math.floor(Math.random() * this.DISTANCE * 2.5);
+        const y = this.DISTANCE - Math.floor(Math.random() * this.DISTANCE * 2.5);
         return {x, y}
     }
 
