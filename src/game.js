@@ -295,6 +295,11 @@ import Explosion from './explosion';
         })
         if (won) {
             this.reset();
+            const musicPlayer = document.getElementById('music-player');
+            musicPlayer.pause();
+            const tadaSound = document.getElementById('tada-sound');
+            tadaSound.play();
+            setTimeout(() => { tadaSound.pause() }, 1700);
             const gameWin = document.getElementById('game-win-container');
             setTimeout(gameWin.classList.remove('hidden'), 500);
             setTimeout(() => { this.appendWinBtn() }, 2500);
@@ -307,6 +312,11 @@ import Explosion from './explosion';
         console.log("lost")
         this.explosion.explode();
         this.reset();
+        const musicPlayer = document.getElementById('music-player');
+        musicPlayer.pause();
+        const bombSound = document.getElementById('bomb-sound');
+        bombSound.play();
+        setTimeout(() => { bombSound.pause() }, 1700);
         this.appendLose();
         const gameLose = document.getElementById('game-lose-container');
         setTimeout(() => {gameLose.classList.remove('hidden'); }, 500);

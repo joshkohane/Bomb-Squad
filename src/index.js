@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameWin = document.getElementById('game-win-container');
     const gameLoseBtn = document.getElementById('game-lose-btn');
     const gameLose = document.getElementById('game-lose-container');
+    const musicPlayer = document.getElementById('music-player');
 
     // let currentLevel = 1
     // let wordChoice = new WordChoice(currentLevel)
@@ -50,18 +51,21 @@ document.addEventListener("DOMContentLoaded", () => {
     gameStartBtn.addEventListener('click', () => {
         gameStart.classList.add('hidden')
         game.start();
+        musicPlayer.play();
     })
 
     gameWinBtn.addEventListener('click', () => {
         gameWin.classList.add('hidden')
         // currentLevel += 1
         game.restart();
+        musicPlayer.play();
     })
 
     gameLoseBtn.addEventListener('click', () => {
         gameLose.classList.add('hidden')
         // let game = new Game(currentLevel)
         game.start();
+        musicPlayer.play();
     })
 
     document.addEventListener('keypress', (e) => {
