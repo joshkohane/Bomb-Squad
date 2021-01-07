@@ -14,11 +14,11 @@ Bomb Squad was created using:
 
 Game play of bomb squad is directed by a series of modals. Upon viewing the game, the inital modal with directions appears. Upon win or loss of a level, the appropriate modal appears. Below is a sample of the landing page modal.
 
-![Bomb Squad Modal](https://github.com/joshkohane/NJTimesCooking/blob/master/app/assets/images/modal_screenshot.png)
+![Bomb Squad Modal](https://github.com/joshkohane/Bomb-Squad/blob/master/images/home_container_screenshot.png)
 
 The design of the main game screen is meant to be playful and fun, a diffusion of the tension caused by the menacing music and ticking clock. The bomb features a clock, a space to enter the secret code, and game stats, including remaining guesses and previously guessed letters.
 
-![Bomb Squad Game Play](https://github.com/joshkohane/NJTimesCooking/blob/master/app/assets/images/modal_screenshot.png)
+![Bomb Squad Game Play](https://github.com/joshkohane/Bomb-Squad/blob/master/images/game_play_screenshot.png)
 
 ## Animations
 
@@ -40,7 +40,8 @@ explode() {
         setTimeout(() => container.classList.remove("start"), 0);
     }
 ```
-![Bomb Squad Game Play](https://github.com/joshkohane/NJTimesCooking/blob/master/app/assets/images/modal_screenshot.png)
+
+![Bomb Squad Explosion](https://github.com/joshkohane/Bomb-Squad/blob/master/images/explosion_screenshot.png)
 
 ## Additional Resources
 
