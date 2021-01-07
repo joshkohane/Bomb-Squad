@@ -41,7 +41,11 @@ import Explosion from './explosion';
         console.log(this.word);
         console.log(this.level);
         console.log(this.interval);
-
+        const musicPlayer = document.getElementById('music-player');
+        const volumeIcon = document.getElementById('volume-icon');
+        if (volumeIcon.classList.contains("fa-volume-up")) {
+            musicPlayer.play();
+        }
         // this.timer.reset();
         // this.timer.start();
         // this.word = this.wordChoice.chooseWord();
@@ -68,7 +72,11 @@ import Explosion from './explosion';
         console.log(this.word);
         console.log(this.level);
         console.log(this.interval);
-
+        const musicPlayer = document.getElementById('music-player');
+        const volumeIcon = document.getElementById('volume-icon');
+        if (volumeIcon.classList.contains("fa-volume-up")) {
+            musicPlayer.play();
+        }
          // this.timer.reset();
          // this.timer.start();
          // this.word = this.wordChoice.chooseWord();
@@ -296,9 +304,12 @@ import Explosion from './explosion';
         if (won) {
             this.reset();
             const musicPlayer = document.getElementById('music-player');
+            const volumeIcon = document.getElementById('volume-icon');
             musicPlayer.pause();
             const tadaSound = document.getElementById('tada-sound');
-            tadaSound.play();
+            if (volumeIcon.classList.contains("fa-volume-up")) {
+                tadaSound.play();
+            }
             setTimeout(() => { tadaSound.pause() }, 1700);
             const gameWin = document.getElementById('game-win-container');
             setTimeout(gameWin.classList.remove('hidden'), 500);
@@ -313,9 +324,12 @@ import Explosion from './explosion';
         this.explosion.explode();
         this.reset();
         const musicPlayer = document.getElementById('music-player');
+        const volumeIcon = document.getElementById('volume-icon');
         musicPlayer.pause();
         const bombSound = document.getElementById('bomb-sound');
-        bombSound.play();
+        if (volumeIcon.classList.contains("fa-volume-up")) {
+            bombSound.play();
+        }
         setTimeout(() => { bombSound.pause() }, 1700);
         this.appendLose();
         const gameLose = document.getElementById('game-lose-container');

@@ -41,16 +41,20 @@ body {
 .icon-links {
     padding: 20px;
     z-index: 3;
+    display: flex;
 }
 
 .github-icon,
-.linkedin-icon {
+.linkedin-icon,
+.volume-icon {
     color: red;
-    padding: 5px;
+    padding: 10px;
     font-size: 30px;
+    cursor: pointer;
 }
 
 .github-icon:hover,
-.linkedin-icon:hover {
+.linkedin-icon:hover,
+.volume-icon:hover {
     color: #a00000;
 }

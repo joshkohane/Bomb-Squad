@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameLoseBtn = document.getElementById('game-lose-btn');
     const gameLose = document.getElementById('game-lose-container');
     const musicPlayer = document.getElementById('music-player');
+    const volumeIcon = document.getElementById('volume-icon');
 
     // let currentLevel = 1
     // let wordChoice = new WordChoice(currentLevel)
@@ -47,11 +48,26 @@ document.addEventListener("DOMContentLoaded", () => {
     homescreen();
 
     let game = new Game()
+
+    volumeIcon.addEventListener('click', () => {
+        if (volumeIcon.classList.contains("fa-volume-up")) {
+            volumeIcon.classList.remove("fa-volume-up");
+            volumeIcon.classList.add("fa-volume-mute");
+            musicPlayer.pause();
+        } else if (gameLose.classList.contains("hidden") && gameWin.classList.contains("hidden") && gameStart.classList.contains("hidden")) {
+            volumeIcon.classList.remove("fa-volume-mute");
+            volumeIcon.classList.add("fa-volume-up");
+            musicPlayer.play();
+        } else {
+            volumeIcon.classList.remove("fa-volume-mute");
+            volumeIcon.classList.add("fa-volume-up");
+        }
+    })
     
     gameStartBtn.addEventListener('click', () => {
         gameStart.classList.add('hidden')
         game.start();
-        musicPlayer.play();
+        
     })
 
     gameWinBtn.addEventListener('click', () => {
@@ -73,20 +89,4 @@ document.addEventListener("DOMContentLoaded", () => {
         game.attempedLetter(e.key);
     })
 
-    // document.addEventListener(game.won(), () => {
-    //     console.log('BIG WINNER')
-    //     gameWin.classList.remove('hidden')
-
-    // })
-
-    // document.addEventListener(game.lost(), () => {
-    //     // console.log(e.key)
-    //     gameLose.classList.remove('hidden')
-
-    // })
-    
-    // if (game.lost()) {
-    //     console.log('GAME OVER')
-    //     gameLose.classList.add('hidden')
-    // }
 })
