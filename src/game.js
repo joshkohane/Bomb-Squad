@@ -45,6 +45,7 @@ import Explosion from './explosion';
         const volumeIcon = document.getElementById('volume-icon');
         if (volumeIcon.classList.contains("fa-volume-up")) {
             musicPlayer.play();
+            musicPlayer.currentTime = 0;
         }
         // this.timer.reset();
         // this.timer.start();
@@ -76,6 +77,7 @@ import Explosion from './explosion';
         const volumeIcon = document.getElementById('volume-icon');
         if (volumeIcon.classList.contains("fa-volume-up")) {
             musicPlayer.play();
+            musicPlayer.currentTime = 0;
         }
          // this.timer.reset();
          // this.timer.start();
