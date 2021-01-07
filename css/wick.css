@@ -1,6 +1,6 @@
 .wick-container {
-    height: 250px;
-    width: 250px;
+    height: 260px;
+    width: 260px;
     /* background-color: white; */
     position: absolute;
     top: 5px;
@@ -33,10 +33,10 @@
 
 .wick-inner-circle {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    width: 90%;
-    height: 90%;
+    top: 14px;
+    left: 14px;
+    width: 89%;
+    height: 89%;
     border-radius: 50%;
     background-color: #666666;
     z-index: -2;
