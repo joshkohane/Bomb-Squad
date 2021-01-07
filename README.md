@@ -20,6 +20,21 @@ The design of the main game screen is meant to be playful and fun, a diffusion o
 
 ![Bomb Squad Game Play](https://github.com/joshkohane/Bomb-Squad/blob/master/images/game_play_screenshot.png)
 
+Additionally, each level comes with new challenges. The higher the level, the longer the code word becomes. On top of that, the clock begins to tick faster. To manage that, I dynamically set the interval of the clock tick based on the level number. Here is how I did that:
+
+```javascript
+start() {
+        this.wordChoice = new WordChoice(this.level);
+        this.word = this.wordChoice.chooseWord();
+        this.hiddenWord = new Array(this.word.length).fill('_');
+        this.remaining = Math.floor(this.word.length * 1.5);
+        this.interval = 1030 - (this.level * 30);
+        this.timeLeft = 30;
+        this.appendTime("00:" + this.timeLeft);
+        this.setClock();
+    }
+```
+
 ## Animations
 
 A main feature of Bomb Squad is the animations. These include moving eyes, a drop of sweat when the clock is nearly out of time, and a moving wick with an animated flame at its tail. But most exciting of all, is the explosion that occurs upon losing a level. This explosion is made up of 400 particles, each moving in a different direction. Initially, this was a challenge. I needed each of the 400 particles to travel in a different direction. Below is the code with my solution followed by a photo of the explosion in process:
