@@ -27,7 +27,7 @@
 .game-win-container,
 .game-lose-container {
     animation: fade-in 1.5s ease-in-out;
-    z-index: 2;
+    z-index: 3;
 }
 
 .game-start-inner-container {
