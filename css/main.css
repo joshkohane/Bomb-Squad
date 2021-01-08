@@ -91,4 +91,11 @@ body {
         color: transparent;
         /* background-color: white; */
     }
+
+    .mobile-input:focus {
+        outline: none;
+        color: transparent;
+        background-color: transparent;
+        cursor: pointer;
+  }
 }
