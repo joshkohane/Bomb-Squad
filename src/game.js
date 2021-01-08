@@ -17,7 +17,7 @@ import Explosion from './explosion';
 
         // this.explosion.explode();
 
-        this.start();
+        // this.start();
     }
     
     start() {
@@ -323,6 +323,7 @@ import Explosion from './explosion';
             const tadaSound = document.getElementById('tada-sound');
             if (volumeIcon.classList.contains("fa-volume-up")) {
                 tadaSound.play();
+                tadaSound.currentTime = 0;
             }
             setTimeout(() => { tadaSound.pause() }, 1700);
             const gameWin = document.getElementById('game-win-container');
@@ -343,6 +344,7 @@ import Explosion from './explosion';
         const bombSound = document.getElementById('bomb-sound');
         if (volumeIcon.classList.contains("fa-volume-up")) {
             bombSound.play();
+            bombSound.currentTime = 0;
         }
         setTimeout(() => { bombSound.pause() }, 1700);
         this.appendLose();
