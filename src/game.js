@@ -264,7 +264,7 @@ import Explosion from './explosion';
         }
         container.classList.add("rotate-container");
         const rotateContainer = document.getElementsByClassName("rotate-container")[0];
-        rotateContainer.style.animation = `turn ${(this.interval * 30) + (this.interval * 9)}ms linear`;
+        rotateContainer.style.animation = `turn ${(this.interval * 30) + (this.interval * 13)}ms linear`;
     }
 
     appendBtn() {
@@ -346,7 +346,7 @@ import Explosion from './explosion';
             bombSound.play();
             bombSound.currentTime = 0;
         }
-        setTimeout(() => { bombSound.pause() }, 1700);
+        setTimeout(() => { bombSound.pause() }, 1750);
         this.appendLose();
         const gameLose = document.getElementById('game-lose-container');
         setTimeout(() => {gameLose.classList.remove('hidden'); }, 500);
