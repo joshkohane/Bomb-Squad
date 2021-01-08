@@ -89,13 +89,15 @@ body {
         height: 100%;
         z-index: 2;
         color: transparent;
-        /* background-color: white; */
+        cursor: none;
+        caret-color: transparent;
     }
 
     .mobile-input:focus {
         outline: none;
         color: transparent;
         background-color: transparent;
-        cursor: pointer;
+        cursor: none;
+        caret-color: transparent;
   }
 }
