@@ -40,7 +40,7 @@ body {
 
 .icon-links {
     padding: 20px;
-    z-index: 3;
+    z-index: 4;
     display: flex;
 }
 
@@ -57,4 +57,37 @@ body {
 .linkedin-icon:hover,
 .volume-icon:hover {
     color: #a00000;
+}
+
+@media (max-width: 850px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        position: relative;
+    }
+
+    .main-title {
+        font-size: 9vw;
+    }
+
+    .level-title {
+        font-size: 6vw;
+    }
+
+    .icon-links {
+        /* position: absolute;
+        bottom: 0px; */
+        padding: 0 20px 20px;
+        z-index: 4;
+        display: flex;
+    }
+
+    .github-icon,
+    .linkedin-icon,
+    .volume-icon {
+        font-size: 20px;
+    }
 }

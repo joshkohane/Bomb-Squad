@@ -23,3 +23,14 @@
     transition: all 1s ease-out;
     z-index: 11;
 }
+
+@media (max-width: 850px) {
+    .explosion-container {
+    position: absolute;
+    right: 126px;
+    top: 42px;
+    height: 60px;
+    width: 60px;
+    /* background-color: white; */
+}
+}
