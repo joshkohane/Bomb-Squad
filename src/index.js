@@ -1,5 +1,3 @@
-console.log('WEBPACK IS WORKING')
-
 import Game from './game';
 
 function homescreen() {
@@ -23,7 +21,6 @@ function homescreen() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log('WEBPACK');
     const gameStartBtn = document.getElementById('game-start-btn');
     const gameStart = document.getElementById('game-start-container');
     const gameWinBtn = document.getElementById('game-win-btn');
@@ -32,9 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameLose = document.getElementById('game-lose-container');
     const musicPlayer = document.getElementById('music-player');
     const volumeIcon = document.getElementById('volume-icon');
-
-    // let currentLevel = 1
-    // let wordChoice = new WordChoice(currentLevel)
     
     homescreen();
 
@@ -74,5 +68,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('keypress', (e) => {
         game.attempedLetter(e.key);
     })
-
 })

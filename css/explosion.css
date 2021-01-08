@@ -4,7 +4,6 @@
     top: 70px;
     height: 100px;
     width: 100px;
-    /* background-color: white; */
 }
 
 .explosion-container.start .explosion-piece {
@@ -26,11 +25,9 @@
 
 @media (max-width: 850px) {
     .explosion-container {
-    position: absolute;
-    right: 126px;
-    top: 42px;
-    height: 60px;
-    width: 60px;
-    /* background-color: white; */
-}
+        right: 126px;
+        top: 42px;
+        height: 60px;
+        width: 60px;
+    }
 }

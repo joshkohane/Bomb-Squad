@@ -14,10 +14,6 @@ import Explosion from './explosion';
         this.clockTick;
         this.timeLeft;
         this.explosion = new Explosion();
-
-        // this.explosion.explode();
-
-        // this.start();
     }
     
     start() {
@@ -39,9 +35,6 @@ import Explosion from './explosion';
         this.appendLevel();
         this.appendRotate();
         this.setLevel();
-        console.log(this.word);
-        console.log(this.level);
-        console.log(this.interval);
         const musicPlayer = document.getElementById('music-player');
         const volumeIcon = document.getElementById('volume-icon');
         if (volumeIcon.classList.contains("fa-volume-up")) {
@@ -69,9 +62,6 @@ import Explosion from './explosion';
         this.appendLevel();
         this.appendRotate();
         this.setLevel();
-        console.log(this.word);
-        console.log(this.level);
-        console.log(this.interval);
         const musicPlayer = document.getElementById('music-player');
         const volumeIcon = document.getElementById('volume-icon');
         if (volumeIcon.classList.contains("fa-volume-up")) {
@@ -81,7 +71,6 @@ import Explosion from './explosion';
     }
 
     reset() {
-        console.log('reset')
         this.timeLeft = 20;
         clearInterval(this.clockTick);
         clearInterval(this.eyeInterval);
@@ -134,13 +123,11 @@ import Explosion from './explosion';
         if (this.timeLeft > 10) {
             time = '00:' + this.timeLeft;
         } else if (this.timeLeft === 10) {
-            console.log('time is 10')
             time = '00:' + this.timeLeft;
             this.moveSweat();
         } else if (this.timeLeft >= 0) {
             time = '00:0' + this.timeLeft;
         } else {
-            console.log('in the timer')
             this.lost();
         }
         this.appendTime(time);
@@ -307,7 +294,6 @@ import Explosion from './explosion';
     }
 
     won() {
-        console.log('won?')
         let won = true;
         this.hiddenWord.forEach(char => {
             if (char === '_') {
@@ -335,7 +321,6 @@ import Explosion from './explosion';
     }
 
     lost() {
-        console.log("lost")
         this.explosion.explode();
         this.reset();
         const musicPlayer = document.getElementById('music-player');

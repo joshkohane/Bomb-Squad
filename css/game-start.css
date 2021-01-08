@@ -28,7 +28,6 @@
 .game-lose-container {
     animation: fade-in 1.5s ease-in-out;
     z-index: 2;
-    /* animation-delay: 2s; */
 }
 
 .game-start-inner-container {
@@ -73,7 +72,6 @@
 }
 
 .text-end {
-    /* width: 50%; */
     font-size: 30px;
     padding: 20px 0;
     animation: typewriter 2s steps(40, end);
@@ -92,7 +90,6 @@
     border: 1px solid #e30000;
     padding: 5px 10px;
     animation: delay 4s;
-    /* left: calc(50% - 70px); */
     bottom: 200px;
     animation: fade-in .5s ease-in-out;
 }
@@ -110,31 +107,16 @@
         height: 100%;
         overflow: hidden;
     }
-    .game-start-inner-container {
-        position: relative;
-        height: 100%;
-        width: 100%;
-    }
 
     .game-start-inner {
-        position: absolute;
-        width: 680px;
         top: 144px;
         left: 5%;
-    }
-
-    .hidden {
-        display: none;
     }
 
     .game-end-title {
         font-size: 5vw;
     }
-
-    #game-start > p {
-        padding: 0px 10px;
-    }
-
+    
     .game-start-text {
         font-size: 3.5vw;
         padding: 10px 0;

@@ -32,8 +32,6 @@
     position: absolute;
     left: 165px;
     top: 220px;
-    /* background-color: white; */
-    /* opacity: .5; */
     width: 35%;
     height: 100px;
     display: flex;
@@ -79,7 +77,6 @@
     left: 40px;
     height: 50%;
     width: 25px;
-    /* background-color: white; */
 }
 
 .bomb-sweat {
@@ -127,10 +124,6 @@
     box-shadow: 1px 1px 8px #5c5c5c;
 }
 
-.blink {
-    background-color: #e30000;
-}
-
 .clock-outer-container,
 .word-outer-container {
     width: 100%;
@@ -159,9 +152,6 @@
 .word-container > p {
     letter-spacing: 10px;
 }
-/* 
-.word-outer-container {
-} */
 
 .bomb-footer-outer-container {
     width: 100%;
@@ -186,7 +176,6 @@
 .bomb-attempted-inner-container {
     border: 2px solid #e30000;
     border-radius: 5px;
-    /* box-shadow: 1px 1px 3px #5c5c5c; */
     width: 90%;
     text-align: center;
 }
@@ -200,151 +189,75 @@
     .game-canvas {
         width: 300px;
         height: 360px;
-        background-color: #666666;
-        z-index: 1;
-        overflow: hidden;
-        position: relative;
     }
 
     .bomb-outer-container {
-        position: absolute;
         left: -15px;
         padding-top: 90px;
         padding-right: 60px;
     }
 
     .bomb-top {
-        position: absolute;
         right: 102px;
         top: 72px;
         width: 120px;
         height: 48px;
-        background-color: black;
-        transform: rotate(20deg);
-        border-top: 1px solid #8a8989;
-        border-bottom: 1px solid #141414;
-        border-radius: 20px;
-        box-shadow: inset 6px 6px 6px #8a8989;
     }
 
     .bomb-eyes-container {
-        position: absolute;
         left: 99px;
         top: 132px;
-        /* background-color: white; */
-        /* opacity: .5; */
         width: 35%;
         height: 60px;
-        display: flex;
-        justify-content: space-between;
     }
 
     .bomb-eyes {
-        position: relative;
         height: 100%;
         width: 36px;
-        border: 3px solid #272727;
-        border-radius: 50%;
-        background-color: white;
-        z-index: 10;
-        opacity: 1;
-        overflow: hidden;
-        box-shadow: inset 4px 4px 4px #a3a3a3;
     }
 
     .bomb-pupil {
-        position: absolute;
         top: 18px;
         left: -11px;
         height: 30px;
         width: 27px;
-        background-color: black;
-        border-radius: 50%;
     }
 
     .bomb-pupil-right {
-        position: absolute;
         top: 18px;
         right: -11px;
         height: 30px;
         width: 27px;
-        background-color: black;
-        border-radius: 50%;
     }
 
     .bomb-sweat-container {
-        position: absolute;
         bottom: 48px;
         left: 24px;
         height: 50%;
         width: 15px;
-        /* background-color: white; */
-    }
-
-    .bomb-sweat {
-        position: relative;
-        height: 100%;
-        width: 100%;
-    }
-
-    @keyframes sweat-fall {
-        from {top: 0}
-        to {top: 100%}
     }
 
     .bomb-sweat-drop {
-        position: absolute;
         width: 15px;
         height: 15px;
-        background-color: #9898d6;
-        border-radius: 50%;
-        border-top-right-radius: 0;
-        transform: rotate(-45deg);
-        box-shadow: inset 4px 4px 4px #cdc6fd;
-        border: 2px solid #dfdaff;
-        animation: sweat-fall 4s infinite;
     }
 
     .bomb-container {
         width: 330px;
         height: 330px;
-        border: 1px solid #8a8989;
-        border-radius: 50%;
-        background-color: black;
-        z-index: -1;
-        box-shadow: inset 6px 6px 6px #8a8989;
     }
 
     .time-outer-container {
-        position: absolute;
         bottom: 78px;
         right: calc(50% - 94px);
         width: 228px;
         height: 120px;
-        border: 7px solid #e30000;
-        border-radius: 10px;
-        box-shadow: 1px 1px 8px #5c5c5c;
-    }
-
-    .blink {
-        background-color: #e30000;
     }
 
     .clock-outer-container,
     .word-outer-container {
         width: 100%;
         height: 45px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .clock-container,
-    .word-container {
-        font-family: 'Black Ops One', cursive;
-        color: #e30000;
-        letter-spacing: 5px;
-        display: flex;
     }
 
     .clock-container {
@@ -355,43 +268,17 @@
         font-size: 3vw;
     }
 
-    .word-container > p {
-        letter-spacing: 10px;
-    }
-    /* 
-    .word-outer-container {
-    } */
-
     .bomb-footer-outer-container {
         width: 100%;
         height: 30px;
-        display: flex;
     }
 
     .bomb-remaining-container,
     .bomb-attempted-container {
-        width: 50%;
-        text-align: center;
-        font-family: 'Black Ops One', cursive;
-        color: #e30000;
-        line-height: 1.5;
         font-size: 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 5px;
-    }
-
-    .bomb-attempted-inner-container {
-        border: 2px solid #e30000;
-        border-radius: 5px;
-        /* box-shadow: 1px 1px 3px #5c5c5c; */
-        width: 90%;
-        text-align: center;
     }
 
     .bomb-attempted-letters {
-        letter-spacing: 1px;
         height: 13px;
-    }
+    } 
 }
