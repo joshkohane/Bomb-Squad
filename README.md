@@ -1,6 +1,6 @@
 # Bomb-Squad
 
-[Bomb Squad](https://joshkohane.github.io/Bomb-Squad/) is a high-anxiety bomb-defusing experience. Each level, a player will have a blank code. They must guess the letters for the code one at a time before the timer runs out and the bomb explodes. The player will also only have a certain number of guesses before the bomb goes off. Upon a correct guess of the code, the player will move up one level. Each level, the clock will move faster and faster, giving them less time to guess the word.
+[Bomb Squad](https://joshkohane.github.io/Bomb-Squad/) is a high-anxiety bomb-defusing experience. Each level, a player will have a blank code. They must guess the code one letter at a time before the timer runs out and the bomb explodes. The player will also only have a certain number of guesses before the bomb goes off. Upon a correct guess of the code, the player will move up one level. Each level, the clock will move faster and faster, giving them less time to guess the word.
 
 ## Technologies
 
@@ -37,7 +37,7 @@ start() {
 
 ## Animations
 
-A main feature of Bomb Squad is the animations. These include moving eyes, a drop of sweat when the clock is nearly out of time, and a moving wick with an animated flame at its tail. But most exciting of all, is the explosion that occurs upon losing a level. This explosion is made up of 400 particles, each moving in a different direction. Initially, this was a challenge. I needed each of the 400 particles to travel in a different direction. Below is the code with my solution followed by a photo of the explosion in process:
+A main feature of Bomb Squad is the animations. These include moving eyes, a drop of sweat when the clock is nearly out of time, and a moving wick with an animated flame at its tail. But most exciting of all, is the explosion that occurs upon losing a level. This explosion is made up of 400 particles, each moving in a different direction. Initially, this was a challenge. I needed each of the 400 particles to travel in a random direction. Below is the code with my solution followed by a photo of the explosion in process:
 
 ```javascript
 explode() {
