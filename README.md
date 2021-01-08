@@ -16,7 +16,7 @@ Game play of bomb squad is directed by a series of modals. Upon viewing the game
 
 ![Bomb Squad Modal](https://github.com/joshkohane/Bomb-Squad/blob/master/images/home_container_screenshot.png)
 
-The design of the main game screen is meant to be playful and fun, a diffusion of the tension caused by the menacing music and ticking clock. The bomb features a clock, a space to enter the secret code, and game stats, including remaining guesses and previously guessed letters.
+The design of the main game screen is meant to be playful and fun, a diffusion of the tension caused by the menacing music and ticking clock. The bomb features a clock, a space to enter the secret code, and game stats, including remaining guesses and previously guessed letters. This game is also dynamically sized and mobile friendly.
 
 ![Bomb Squad Game Play](https://github.com/joshkohane/Bomb-Squad/blob/master/images/game_play_screenshot.png)
 
