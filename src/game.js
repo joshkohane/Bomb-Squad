@@ -17,7 +17,7 @@ import Explosion from './explosion';
 
         // this.explosion.explode();
 
-        // this.start();
+        this.start();
     }
     
     start() {
@@ -38,6 +38,7 @@ import Explosion from './explosion';
         this.appendGuesses();
         this.appendLevel();
         this.appendRotate();
+        this.setLevel();
         console.log(this.word);
         console.log(this.level);
         console.log(this.interval);
@@ -67,6 +68,7 @@ import Explosion from './explosion';
         this.appendGuesses();
         this.appendLevel();
         this.appendRotate();
+        this.setLevel();
         console.log(this.word);
         console.log(this.level);
         console.log(this.interval);
@@ -97,6 +99,25 @@ import Explosion from './explosion';
                 loseBtn.removeChild(child);
             })
         }
+    }
+
+    setLevel() {
+        let score;
+        if (!!localStorage['high-score']) {
+            score = localStorage['high-score'];
+        } else {
+            localStorage.setItem('high-score', '1');
+            score = 1;
+        }
+        const highScore = document.getElementById("high-score-number");
+        let p = document.createElement('p');
+        p.textContent = score;
+        if (highScore.hasChildNodes()) {
+            highScore.childNodes.forEach(child => {
+                highScore.removeChild(child);
+            })
+        }
+        highScore.appendChild(p);
     }
 
     setClock() {
@@ -279,6 +300,12 @@ import Explosion from './explosion';
         container.classList.remove("rotate-container");
     }
 
+    updateScore() {
+        if (this.level >= parseInt(localStorage['high-score'])) {
+            localStorage.setItem('high-score', (this.level + 1).toString())
+        }
+    }
+
     won() {
         console.log('won?')
         let won = true;
@@ -289,6 +316,7 @@ import Explosion from './explosion';
         })
         if (won) {
             this.reset();
+            this.updateScore();
             const musicPlayer = document.getElementById('music-player');
             const volumeIcon = document.getElementById('volume-icon');
             musicPlayer.pause();

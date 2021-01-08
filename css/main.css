@@ -16,7 +16,7 @@ body {
 .main-title {
     color: #e30000;
     font-size: 60px;
-    padding: 15px 0 0px;
+    padding: 5px 0 0px;
     font-family: 'Black Ops One', cursive;
     z-index: 3;
 }
@@ -24,9 +24,9 @@ body {
 .level-title {
     color: #e30000;
     font-size: 40px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     font-family: 'Black Ops One', cursive;
-    z-index: 1;
+    z-index: 3;
     display: flex;
 }
 
