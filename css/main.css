@@ -14,19 +14,18 @@ body {
 }
 
 .main-title {
-    color: red;
+    color: #e30000;
     font-size: 60px;
-    padding: 15px 0 0px;
+    padding: 5px 0 0px;
     font-family: 'Black Ops One', cursive;
-    z-index: 1;
+    z-index: 3;
 }
 
 .level-title {
-    color: red;
+    color: #e30000;
     font-size: 40px;
-    padding-bottom: 10px;
     font-family: 'Black Ops One', cursive;
-    z-index: 1;
+    z-index: 3;
     display: flex;
 }
 
@@ -35,22 +34,46 @@ body {
 }
 
 #game-canvas {
-    border: 10px solid red;
+    border: 10px solid #e30000;
 }
 
 .icon-links {
     padding: 20px;
-    z-index: 1;
+    z-index: 4;
+    display: flex;
 }
 
 .github-icon,
-.linkedin-icon {
-    color: red;
-    padding: 5px;
+.linkedin-icon,
+.volume-icon {
+    color: #e30000;
+    padding: 10px;
     font-size: 30px;
+    cursor: pointer;
 }
 
 .github-icon:hover,
-.linkedin-icon:hover {
+.linkedin-icon:hover,
+.volume-icon:hover {
     color: #a00000;
+}
+
+@media (max-width: 850px) {
+    .main-title {
+        font-size: 9vw;
+    }
+
+    .level-title {
+        font-size: 6vw;
+    }
+
+    .icon-links {
+        padding: 0 20px 20px;
+    }
+
+    .github-icon,
+    .linkedin-icon,
+    .volume-icon {
+        font-size: 20px;
+    }
 }

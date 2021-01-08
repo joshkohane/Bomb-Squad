@@ -4,7 +4,6 @@
     top: 70px;
     height: 100px;
     width: 100px;
-    /* background-color: white; */
 }
 
 .explosion-container.start .explosion-piece {
@@ -19,7 +18,16 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    background-color: red;
+    background-color: #e30000;
     transition: all 1s ease-out;
     z-index: 11;
+}
+
+@media (max-width: 850px) {
+    .explosion-container {
+        right: 126px;
+        top: 42px;
+        height: 60px;
+        width: 60px;
+    }
 }

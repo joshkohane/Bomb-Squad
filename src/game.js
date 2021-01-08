@@ -14,10 +14,6 @@ import Explosion from './explosion';
         this.clockTick;
         this.timeLeft;
         this.explosion = new Explosion();
-
-        // this.explosion.explode();
-
-        // this.start();
     }
     
     start() {
@@ -29,7 +25,7 @@ import Explosion from './explosion';
         this.attempted = [];
         this.remaining = Math.floor(this.word.length * 1.5);
         this.interval = 1030 - (this.level * 30);
-        this.timeLeft = 20;
+        this.timeLeft = 30;
         this.appendTime("00:" + this.timeLeft);
         this.setClock();
         this.setEyes();
@@ -37,13 +33,14 @@ import Explosion from './explosion';
         this.appendLetter();
         this.appendGuesses();
         this.appendLevel();
-        console.log(this.word);
-        console.log(this.level);
-        console.log(this.interval);
-
-        // this.timer.reset();
-        // this.timer.start();
-        // this.word = this.wordChoice.chooseWord();
+        this.appendRotate();
+        this.setLevel();
+        const musicPlayer = document.getElementById('music-player');
+        const volumeIcon = document.getElementById('volume-icon');
+        if (volumeIcon.classList.contains("fa-volume-up")) {
+            musicPlayer.play();
+            musicPlayer.currentTime = 0;
+        }
     }
     
     restart() {
@@ -55,7 +52,7 @@ import Explosion from './explosion';
         this.attempted = [];
         this.remaining = Math.floor(this.word.length * 1.5);
         this.interval = 1030 - (this.level * 30);
-        this.timeLeft = 20;
+        this.timeLeft = 30;
         this.appendTime("00:" + this.timeLeft);
         this.setClock();
         this.setEyes();
@@ -63,22 +60,53 @@ import Explosion from './explosion';
         this.appendLetter();
         this.appendGuesses();
         this.appendLevel();
-        console.log(this.word);
-        console.log(this.level);
-        console.log(this.interval);
-
-         // this.timer.reset();
-         // this.timer.start();
-         // this.word = this.wordChoice.chooseWord();
+        this.appendRotate();
+        this.setLevel();
+        const musicPlayer = document.getElementById('music-player');
+        const volumeIcon = document.getElementById('volume-icon');
+        if (volumeIcon.classList.contains("fa-volume-up")) {
+            musicPlayer.play();
+            musicPlayer.currentTime = 0;
+        }
     }
 
     reset() {
-        console.log('reset')
         this.timeLeft = 20;
         clearInterval(this.clockTick);
         clearInterval(this.eyeInterval);
+        setTimeout(() => this.removeRotate(), 1500);
         this.attempted = [];
-        // this.hiddenWord = new Array(this.word.length).fill('_');
+        const winBtn = document.getElementById("game-win-btn");
+        if (winBtn.hasChildNodes()) {
+            winBtn.childNodes.forEach(child => {
+                winBtn.removeChild(child);
+            })
+        }
+        const loseBtn = document.getElementById("game-lose-btn");
+        if (loseBtn.hasChildNodes()) {
+            loseBtn.childNodes.forEach(child => {
+                loseBtn.removeChild(child);
+            })
+        }
+    }
+
+    setLevel() {
+        let score;
+        if (!!localStorage['high-score']) {
+            score = localStorage['high-score'];
+        } else {
+            localStorage.setItem('high-score', '1');
+            score = 1;
+        }
+        const highScore = document.getElementById("high-score-number");
+        let p = document.createElement('p');
+        p.textContent = score;
+        if (highScore.hasChildNodes()) {
+            highScore.childNodes.forEach(child => {
+                highScore.removeChild(child);
+            })
+        }
+        highScore.appendChild(p);
     }
 
     setClock() {
@@ -86,7 +114,6 @@ import Explosion from './explosion';
     }
 
     setEyes() {
-        // let random = Math.floor(Math.random() * 10)
         this.eyeInterval = setInterval(this.moveEyes.bind(this), 3400);
     }
 
@@ -96,13 +123,11 @@ import Explosion from './explosion';
         if (this.timeLeft > 10) {
             time = '00:' + this.timeLeft;
         } else if (this.timeLeft === 10) {
-            console.log('time is 10')
             time = '00:' + this.timeLeft;
             this.moveSweat();
         } else if (this.timeLeft >= 0) {
             time = '00:0' + this.timeLeft;
         } else {
-            console.log('in the timer')
             this.lost();
         }
         this.appendTime(time);
@@ -119,8 +144,6 @@ import Explosion from './explosion';
                 eyes[i].classList.remove("bomb-pupil-right")
             }
         }
-        // eyes.forEach(eye => {
-        // })
     }
 
     moveSweat() {
@@ -166,10 +189,6 @@ import Explosion from './explosion';
             })
         }
         letterContainer.appendChild(p);
-        // if (this.remaining === 0) {
-        //     console.log('CALLING LOST FROM APPENDLETTER')
-        //     this.lost();
-        // }
     }
 
     appendWord() {
@@ -222,12 +241,59 @@ import Explosion from './explosion';
             this.remaining -= 1;
             this.appendLetter();
             this.appendGuesses();
-                // CALL ANOTHER METHOD THAT SHOWS A BIG RED X
+        }
+    }
+
+    appendRotate() {
+        const container = document.getElementById("wick-container");
+        if (container.classList.contains("rotate-container")) {
+            container.classList.remove("rotate-container");
+        }
+        container.classList.add("rotate-container");
+        const rotateContainer = document.getElementsByClassName("rotate-container")[0];
+        rotateContainer.style.animation = `turn ${(this.interval * 30) + (this.interval * 13)}ms linear`;
+    }
+
+    appendBtn() {
+        const loseBtn = document.getElementById("game-lose-btn");
+        let button = document.createElement('button');
+        button.textContent = "Try Again";
+        button.classList.add("game-start-btn");
+        if (loseBtn.hasChildNodes()) {
+            loseBtn.childNodes.forEach(child => {
+                loseBtn.removeChild(child);
+            })
+        }
+        loseBtn.appendChild(button);
+    }
+
+    appendWinBtn() {
+        const winBtn = document.getElementById("game-win-btn");
+        let button = document.createElement('button');
+        button.textContent = "Next Level";
+        button.classList.add("game-start-btn");
+        if (winBtn.hasChildNodes()) {
+            winBtn.childNodes.forEach(child => {
+                winBtn.removeChild(child);
+            })
+        }
+        winBtn.appendChild(button);
+    }
+
+    removeRotate() {
+        const rotateContainer = document.getElementsByClassName("rotate-container")[0];
+        rotateContainer.style.removeProperty("animation");
+        const container = document.getElementById("wick-container");
+        container.classList.remove("rotate-container");
+    }
+
+    updateScore() {
+        if (this.level >= parseInt(localStorage['high-score'])) {
+            localStorage.setItem('high-score', (this.level + 1).toString())
         }
     }
 
     won() {
-        console.log('won?')
         let won = true;
         this.hiddenWord.forEach(char => {
             if (char === '_') {
@@ -236,30 +302,43 @@ import Explosion from './explosion';
         })
         if (won) {
             this.reset();
+            this.updateScore();
+            const musicPlayer = document.getElementById('music-player');
+            const volumeIcon = document.getElementById('volume-icon');
+            musicPlayer.pause();
+            const tadaSound = document.getElementById('tada-sound');
+            if (volumeIcon.classList.contains("fa-volume-up")) {
+                tadaSound.play();
+                tadaSound.currentTime = 0;
+            }
+            setTimeout(() => { tadaSound.pause() }, 1700);
             const gameWin = document.getElementById('game-win-container');
-            setTimeout(gameWin.classList.remove('hidden'), 5000)
+            setTimeout(gameWin.classList.remove('hidden'), 500);
+            setTimeout(() => { this.appendWinBtn() }, 2500);
             const sweat = document.getElementById("bomb-sweat-drop");
             sweat.classList.remove("bomb-sweat-drop");
         }
     }
 
     lost() {
-        console.log("lost")
         this.explosion.explode();
         this.reset();
+        const musicPlayer = document.getElementById('music-player');
+        const volumeIcon = document.getElementById('volume-icon');
+        musicPlayer.pause();
+        const bombSound = document.getElementById('bomb-sound');
+        if (volumeIcon.classList.contains("fa-volume-up")) {
+            bombSound.play();
+            bombSound.currentTime = 0;
+        }
+        setTimeout(() => { bombSound.pause() }, 1750);
         this.appendLose();
         const gameLose = document.getElementById('game-lose-container');
         setTimeout(() => {gameLose.classList.remove('hidden'); }, 500);
+        setTimeout(() => {this.appendBtn()}, 2500);
         const sweat = document.getElementById("bomb-sweat-drop");
         sweat.classList.remove("bomb-sweat-drop");
     }
-
-    //  gameOver() {
-    //      if (this.won() || this.lost()) {
-    //          return true;
-    //      }
-    //      return false;
-    //  }
 }
 
 export default Game;

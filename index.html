@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./dist/main.js"></script>
-    <link rel="icon" href="./dist/favicon.ico" type="image/x-icon" />
-    <link type="text/css" rel="stylesheet" href="./css/reset.css">
-    <link type="text/css" rel="stylesheet" href="./css/main.css">
-    <link type="text/css" rel="stylesheet" href="./css/game-start.css">
-    <link type="text/css" rel="stylesheet" href="./css/game.css">
-    <link type="text/css" rel="stylesheet" href="./css/explosion.css">
-    <link type="text/css" rel="stylesheet" href="./css/fire.css">
+    <script src="./main.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="../css/reset.css">
+    <link type="text/css" rel="stylesheet" href="../css/main.css">
+    <link type="text/css" rel="stylesheet" href="../css/game-start.css">
+    <link type="text/css" rel="stylesheet" href="../css/game.css">
+    <link type="text/css" rel="stylesheet" href="../css/explosion.css">
+    <link type="text/css" rel="stylesheet" href="../css/fire.css">
+    <link type="text/css" rel="stylesheet" href="../css/wick.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1576428ae6.js" crossorigin="anonymous"></script>
@@ -20,15 +21,17 @@
     <div class="game-start-container " id="game-start-container" >
         <div class="game-start-inner-container " >
             <div class="game-start-inner" id="game-start-inner" ></div>
-            <button id="game-start-btn" class="game-start-btn">Ready?</button>
+            <div class="game-end-btn" >
+                <button id="game-start-btn" class="game-start-btn">Ready?</button>
+            </div>
         </div>
     </div>
-    <div class="game-win-container hidden" id="game-win-container">
+    <div class="game-win-container hidden " id="game-win-container">
         <h1 class="game-end-title" >YOU WIN!</h1>
         <div class="game-start">
             <p class="game-start-text text-end" >Ready for the next level?</p>
         </div>
-        <button id="game-win-btn" class="game-start-btn" >Next Level</button>
+        <div class="game-end-btn" id="game-win-btn" ></div>
     </div>
     <div class="game-lose-container hidden " id="game-lose-container">
         <h1 class="game-end-title" >YOU LOSE!</h1>
@@ -39,25 +42,34 @@
             </div>
             <p class="game-start-text text-end" >Better luck next time...</p>
         </div>
-        <button id="game-lose-btn" class="game-start-btn">Try Again</button>
+        <div class="game-end-btn" id="game-lose-btn"></div>
     </div>
     <div class="main-game-container" >
-        <div class="fire-container" >
-            <div class="fire-left" ></div>
-            <div class="fire-right" ></div>
-            <div class="fire-top" ></div>
-            <div class="fire-bottom" ></div>
-            <div class="fire-middle" ></div>
-        </div>
         <h1 class="main-title" >Bomb Squad</h1>
+        <h2 class="level-title">
+            <div class="level-number">High Score: </div>
+            <div class="level-number" id="high-score-number"></div>
+        </h2>
         <h2 class="level-title" >
             <div class="level-number" >Level</div>
             <div class="level-number" id="level-number" ></div>
         </h2>
         <div id="game-canvas" class="game-canvas" >
             <div class="bomb-outer-container">
-                <div class="explosion-container" id="explosion-container" >
-                    <!-- <div class="explosion-piece" ></div> -->
+                <div class="explosion-container" id="explosion-container" ></div>
+                <div class="wick-container " id="wick-container" >
+                    <div class="wick-inner-container" >
+                        <div class="fire-container" >
+                            <div class="fire-left" ></div>
+                            <div class="fire-right" ></div>
+                            <div class="fire-top" ></div>
+                            <div class="fire-bottom" ></div>
+                            <div class="fire-middle" ></div>
+                        </div>
+                        <div class="wick-outer-circle" ></div>
+                        <div class="wick-inner-circle" ></div>
+                        <div class="wick-cover"></div>
+                    </div>
                 </div>
                 <div class="bomb-top"></div>
                 <div class="bomb-eyes-container">
@@ -96,7 +108,6 @@
                 </div>
             </div>
         </div>
-        <!-- <canvas id="game-canvas" height="600" width="500" style="background-color: #666666;"></canvas> -->
         <div id="root"></div>
         <div class="icon-links">
             <a href="https://github.com/joshkohane/Bomb-Squad" target="_blank" >
@@ -105,7 +116,26 @@
             <a href="https://www.linkedin.com/in/josh-kohane-1472981b4/" target="_blank" >
                 <i class="fab fa-linkedin linkedin-icon"></i>
             </a>
+            <div>
+                <i class="fas fa-volume-up volume-icon" id="volume-icon" ></i>
+            </div>
         </div>
     </div>
+    <audio
+        loop
+        id="music-player"
+        src="../music/01 Action Fight 1.mp3"
+        >
+    </audio>
+    <audio 
+        loop 
+        id="bomb-sound" 
+        src="../music/Explosion+3.mp3">
+    </audio>
+    <audio 
+        loop 
+        id="tada-sound" 
+        src="../music/Tada Sound Effect.mp3">
+    </audio>
 </body>
 </html>

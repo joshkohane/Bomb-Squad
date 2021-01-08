@@ -32,8 +32,6 @@
     position: absolute;
     left: 165px;
     top: 220px;
-    /* background-color: white; */
-    /* opacity: .5; */
     width: 35%;
     height: 100px;
     display: flex;
@@ -44,7 +42,7 @@
     position: relative;
     height: 100%;
     width: 60px;
-    border: 1px solid black;
+    border: 3px solid #272727;
     border-radius: 50%;
     background-color: white;
     z-index: 10;
@@ -79,7 +77,6 @@
     left: 40px;
     height: 50%;
     width: 25px;
-    /* background-color: white; */
 }
 
 .bomb-sweat {
@@ -122,13 +119,9 @@
     right: calc(50% - 145px);
     width: 380px;
     height: 200px;
-    border: 7px solid red;
+    border: 7px solid #e30000;
     border-radius: 10px;
     box-shadow: 1px 1px 8px #5c5c5c;
-}
-
-.blink {
-    background-color: red;
 }
 
 .clock-outer-container,
@@ -143,7 +136,7 @@
 .clock-container,
 .word-container {
     font-family: 'Black Ops One', cursive;
-    color: red;
+    color: #e30000;
     letter-spacing: 5px;
     display: flex;
 }
@@ -159,9 +152,6 @@
 .word-container > p {
     letter-spacing: 10px;
 }
-/* 
-.word-outer-container {
-} */
 
 .bomb-footer-outer-container {
     width: 100%;
@@ -174,7 +164,7 @@
     width: 50%;
     text-align: center;
     font-family: 'Black Ops One', cursive;
-    color: red;
+    color: #e30000;
     line-height: 1.5;
     font-size: 15px;
     display: flex;
@@ -184,9 +174,8 @@
 }
 
 .bomb-attempted-inner-container {
-    border: 2px solid red;
+    border: 2px solid #e30000;
     border-radius: 5px;
-    /* box-shadow: 1px 1px 3px #5c5c5c; */
     width: 90%;
     text-align: center;
 }
@@ -194,4 +183,102 @@
 .bomb-attempted-letters {
     letter-spacing: 1px;
     height: 22px;
+}
+
+@media (max-width: 850px) {
+    .game-canvas {
+        width: 300px;
+        height: 360px;
+    }
+
+    .bomb-outer-container {
+        left: -15px;
+        padding-top: 90px;
+        padding-right: 60px;
+    }
+
+    .bomb-top {
+        right: 102px;
+        top: 72px;
+        width: 120px;
+        height: 48px;
+    }
+
+    .bomb-eyes-container {
+        left: 99px;
+        top: 132px;
+        width: 35%;
+        height: 60px;
+    }
+
+    .bomb-eyes {
+        height: 100%;
+        width: 36px;
+    }
+
+    .bomb-pupil {
+        top: 18px;
+        left: -11px;
+        height: 30px;
+        width: 27px;
+    }
+
+    .bomb-pupil-right {
+        top: 18px;
+        right: -11px;
+        height: 30px;
+        width: 27px;
+    }
+
+    .bomb-sweat-container {
+        bottom: 48px;
+        left: 24px;
+        height: 50%;
+        width: 15px;
+    }
+
+    .bomb-sweat-drop {
+        width: 15px;
+        height: 15px;
+    }
+
+    .bomb-container {
+        width: 330px;
+        height: 330px;
+    }
+
+    .time-outer-container {
+        bottom: 78px;
+        right: calc(50% - 94px);
+        width: 228px;
+        height: 120px;
+    }
+
+    .clock-outer-container,
+    .word-outer-container {
+        width: 100%;
+        height: 45px;
+    }
+
+    .clock-container {
+        font-size: 4vw;
+    }
+
+    .word-container {
+        font-size: 3vw;
+    }
+
+    .bomb-footer-outer-container {
+        width: 100%;
+        height: 30px;
+    }
+
+    .bomb-remaining-container,
+    .bomb-attempted-container {
+        font-size: 8px;
+    }
+
+    .bomb-attempted-letters {
+        height: 13px;
+    } 
 }

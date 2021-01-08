@@ -1,0 +1,79 @@
+.wick-container {
+    height: 260px;
+    width: 260px;
+    position: absolute;
+    top: 5px;
+    right: 250px;
+}
+
+.wick-inner-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.wick-outer-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: -2;
+    background-image: repeating-linear-gradient(110deg, #902727, #902727 10px, #691b1b 2px, #691b1b 11px);
+    border: 2px solid black;
+}
+
+.wick-inner-circle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background-color: #666666;
+    z-index: -2;
+    border: 2px solid black;
+    box-shadow: 2px -2px 4px #530500;
+}
+
+.wick-cover {
+    position: absolute;
+    bottom: -10px;
+    left: -20px;
+    width: 300px;
+    height: 160px;
+    background-color: #666666;
+    z-index: -2;
+    transform: rotate(15deg);
+}
+
+.rotate-container {
+    z-index: -2;
+}
+
+@keyframes turn {
+    from {transform: rotate(30deg)}
+    to {transform: rotate(180deg)}
+}
+
+@media (max-width: 850px) {
+    .wick-container {
+        height: 156px;
+        width: 156px;
+        top: 3px;
+        right: 150px;
+    }
+
+    .wick-inner-circle {
+        top: 12px;
+        left: 12px;
+        width: 85%;
+        height: 85%;
+    }
+
+    .wick-cover {
+        bottom: -6px;
+        left: -12px;
+        width: 180px;
+        height: 96px;
+    }
+}
