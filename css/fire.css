@@ -12,7 +12,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #d70101;
+    background-color: #d83838;
     height: 50px;
     width: 50px;
     z-index: 103;
@@ -20,8 +20,7 @@
     border-top-right-radius: 0;
     transform: rotate(-45deg);
     animation: jump 2s infinite;
-
-    /* box-shadow: 2px 2px 2px #d70101; */
+    box-shadow: 2px -2px 5px #d65555;
 }
 
 .fire-right {
@@ -36,9 +35,7 @@
     border-top-right-radius: 0;
     transform: rotate(-70deg);
     animation: tilt 2s infinite;
-
-    /* box-shadow: 2px 2px 2px #f49307; */
-
+    box-shadow: 2px -2px 4px #f39b1f;
 }
 
 .fire-top {
@@ -53,8 +50,7 @@
     border-top-right-radius: 0;
     transform: rotate(-60deg);
     animation: flicker 2s infinite;
-
-    /* box-shadow: 2px 2px 2px orange; */
+    box-shadow: 2px -2px 2px #e4a228;
 
 }
 /* #d70101 - dark red - fire left */
@@ -72,7 +68,7 @@
     border-top-right-radius: 0;
     transform: rotate(-20deg);
     animation: flicker 4s infinite;
-    /* box-shadow: 2px 2px 2px #ff7a20; */
+    box-shadow: 2px -2px 2px #f78031;
 
 }
 
@@ -80,7 +76,7 @@
     position: absolute;
     top: 25px;
     left: 15px;
-    background-color: #e30000;
+    background-color: #ec2e2e;
     height: 30px;
     width: 25px;
     z-index: 107;
@@ -88,21 +84,16 @@
     border-top-left-radius: 0;
     transform: rotate(60deg);
     animation: grow 3s infinite;
-    /* box-shadow: 2px 2px 2px red; */
+    box-shadow: -2px -2px 4px #f83c3c;
 
 }
 
 @keyframes grow {
     0% {width: 25px; height: 30px; top: 25px;}
-    40% {width: 23px; height: 25px; top: 26px; opacity: .6}
+    40% {width: 23px; height: 25px; top: 27px; opacity: .6}
     50% {width: 25px; height: 30px; top: 25px;}
-    65% {width: 23px; height: 28px; top: 26px; opacity: .7}
+    65% {width: 23px; height: 28px; top: 27px; opacity: .7}
     80% {width: 25px; height: 30px; top: 25px;}
-    /* 0% {width: 100%; height: 100%}
-    20% {width: 60%; height: 60%}
-    30% {width: 100%; height: 100%}
-    35% {width: 80%; height: 80%}
-    50% {width: 100%; height: 100%} */
 }
 
 @keyframes flicker {

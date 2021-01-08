@@ -44,7 +44,7 @@
     position: relative;
     height: 100%;
     width: 60px;
-    border: 1px solid black;
+    border: 3px solid #272727;
     border-radius: 50%;
     background-color: white;
     z-index: 10;
