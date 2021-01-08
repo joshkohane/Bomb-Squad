@@ -18,7 +18,7 @@ Game play of bomb squad is directed by a series of modals. Upon viewing the game
 
 The design of the main game screen is meant to be playful and fun, a diffusion of the tension caused by the menacing music and ticking clock. The bomb features a clock, a space to enter the secret code, and game stats, including remaining guesses and previously guessed letters. This game is also dynamically sized and mobile friendly.
 
-![Bomb Squad Game Play](https://github.com/joshkohane/Bomb-Squad/blob/master/images/game_play_screenshot.png)
+![Bomb Squad Game Play](https://github.com/joshkohane/Bomb-Squad/blob/master/images/main_game_screenshot.png)
 
 Additionally, each level comes with new challenges. The higher the level, the longer the code word becomes. On top of that, the clock begins to tick faster. To manage that, I dynamically set the interval of the clock tick based on the level number. Here is how I did that:
 
