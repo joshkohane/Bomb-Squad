@@ -52,17 +52,19 @@ document.addEventListener("DOMContentLoaded", () => {
     gameStartBtn.addEventListener('click', () => {
         gameStart.classList.add('hidden')
         game.start();
-        
+        document.getElementById('mobile-input').value = "";
     })
 
     gameWinBtn.addEventListener('click', () => {
         gameWin.classList.add('hidden')
         game.restart();
+        document.getElementById('mobile-input').value = "";
     })
 
     gameLoseBtn.addEventListener('click', () => {
         gameLose.classList.add('hidden')
         game.start();
+        document.getElementById('mobile-input').value = "";
     })
 
     document.addEventListener('keypress', (e) => {
