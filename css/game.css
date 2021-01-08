@@ -264,9 +264,9 @@
 
     .bomb-pupil-right {
         position: absolute;
-        top: 30px;
+        top: 18px;
         right: -11px;
-        height: 18px;
+        height: 30px;
         width: 27px;
         background-color: black;
         border-radius: 50%;

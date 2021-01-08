@@ -133,7 +133,7 @@
     }
 
     @keyframes turn {
-        from {transform: rotate(60deg)}
+        from {transform: rotate(30deg)}
         to {transform: rotate(180deg)}
     }
 }

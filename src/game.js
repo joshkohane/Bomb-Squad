@@ -264,7 +264,7 @@ import Explosion from './explosion';
         }
         container.classList.add("rotate-container");
         const rotateContainer = document.getElementsByClassName("rotate-container")[0];
-        rotateContainer.style.animation = `turn ${(this.interval * 30) + (this.interval * 12)}ms linear`;
+        rotateContainer.style.animation = `turn ${(this.interval * 30) + (this.interval * 13)}ms linear`;
     }
 
     appendBtn() {
