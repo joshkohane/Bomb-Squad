@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     gameStartBtn.addEventListener('click', () => {
         gameStart.classList.add('hidden')
-        game.start();
+        game.start();        
         document.getElementById('mobile-input').value = "";
     })
 
