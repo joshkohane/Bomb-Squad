@@ -95,11 +95,18 @@ body {
     }
 
     .mobile-input:focus {
-        outline: none;
         color: transparent;
         background-color: transparent;
         cursor: none;
         caret-color: transparent;
         outline: none;
-  }
+    }
+
+    .mobile-input.text:focus {
+        outline: none;
+        color: transparent;
+        background-color: transparent;
+        cursor: none;
+        caret-color: transparent;
+    }
 }
