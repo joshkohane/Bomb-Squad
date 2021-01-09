@@ -228,19 +228,22 @@ import Explosion from './explosion';
     }
 
     attempedLetter(char) {
-        if (this.word.includes(char)) {
-            this.word.split('').map((letter, idx) => {
-                if (letter === char) {
-                    this.hiddenWord[idx] = char;
-                    this.appendWord();
-                }
-            })
-            this.won();
-        } else {
-            this.attempted.push(char);
-            this.remaining -= 1;
-            this.appendLetter();
-            this.appendGuesses();
+        let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        if (alphabet.includes(char)) {
+            if (this.word.includes(char)) {
+                this.word.split('').map((letter, idx) => {
+                    if (letter === char) {
+                        this.hiddenWord[idx] = char;
+                        this.appendWord();
+                    }
+                })
+                this.won();
+            } else {
+                this.attempted.push(char);
+                this.remaining -= 1;
+                this.appendLetter();
+                this.appendGuesses();
+            }
         }
         document.getElementById('mobile-input').value = "";
     }
