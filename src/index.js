@@ -53,18 +53,21 @@ document.addEventListener("DOMContentLoaded", () => {
         gameStart.classList.add('hidden')
         game.start();        
         document.getElementById('mobile-input').value = "";
+        document.getElementById('mobile-input').focus;
     })
 
     gameWinBtn.addEventListener('click', () => {
         gameWin.classList.add('hidden')
         game.restart();
         document.getElementById('mobile-input').value = "";
+        document.getElementById('mobile-input').focus;
     })
 
     gameLoseBtn.addEventListener('click', () => {
         gameLose.classList.add('hidden')
         game.start();
         document.getElementById('mobile-input').value = "";
+        document.getElementById('mobile-input').focus;
     })
 
     document.addEventListener('keypress', (e) => {
