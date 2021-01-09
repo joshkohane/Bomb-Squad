@@ -91,6 +91,7 @@ body {
         color: transparent;
         cursor: none;
         caret-color: transparent;
+        outline: none;
     }
 
     .mobile-input:focus {
@@ -99,5 +100,6 @@ body {
         background-color: transparent;
         cursor: none;
         caret-color: transparent;
+        outline: none;
   }
 }
