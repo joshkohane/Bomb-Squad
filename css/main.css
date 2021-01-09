@@ -83,6 +83,7 @@ body {
     }
 
     .mobile-input {
+        border: none;
         display: block;
         position: absolute;
         width: 100%;
@@ -95,6 +96,7 @@ body {
     }
 
     .mobile-input:focus {
+        border: none;
         color: transparent;
         background-color: transparent;
         cursor: none;
@@ -103,6 +105,7 @@ body {
     }
 
     .mobile-input.text:focus {
+        border: none;
         outline: none;
         color: transparent;
         background-color: transparent;
