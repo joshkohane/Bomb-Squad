@@ -242,6 +242,7 @@ import Explosion from './explosion';
             this.appendLetter();
             this.appendGuesses();
         }
+        document.getElementById('mobile-input').value = "";
     }
 
     appendRotate() {
