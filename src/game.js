@@ -229,7 +229,7 @@ import Explosion from './explosion';
 
     attempedLetter(char) {
         let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        if (alphabet.includes(char)) {
+        if (alphabet.includes(char) && !this.attempted.includes(char)) {
             if (this.word.includes(char)) {
                 this.word.split('').map((letter, idx) => {
                     if (letter === char) {
